@@ -17,5 +17,6 @@
     height: 125px;
     display: flex;
     align-items: baseline;
+    gap: 2px;
 }
 
