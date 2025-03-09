@@ -44,7 +44,7 @@ function addBooktoLibrary(title, author, pages, read){
 function displayBook(bookid){
     var bookmodal = document.querySelector('.book-modal')
     bookmodal.style.display = 'block'
-    createBooksModal(bookmodal, this.bookid)
+    createBooksModal(bookmodal, bookid)
 }
 
 function closeBook(){
@@ -62,7 +62,7 @@ function createBooksModal(bookmodal, bookid){
     var author =parentmodal.querySelector('.author')
     author.innerHTML = item.author
 
-    var pages = parentmodal.querySelector('.author')
+    var pages = parentmodal.querySelector('.pages')
     pages.innerHTML = item.pages
 }
 

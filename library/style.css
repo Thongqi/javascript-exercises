@@ -8,9 +8,10 @@
     display: none;
     position: fixed;
     z-index: 1;
-    height: 40vh;
-    width: 30vw;
+    width: 12vw;
     background-color: brown;
+    aspect-ratio: 1/1.2;
+    left: 40vw;
 }
 
 .modal-content{
