@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
     var bookslist = document.querySelectorAll('.book')
     bookslist.forEach(function(book){
-        book.addEventListener('click', function(book){
-            displayBook(book.getAttribute('id'))
+        book.addEventListener('click', function(){
+            displayBook(this.getAttribute('id'))
         })
     })
 
@@ -42,7 +42,7 @@ function addBooktoLibrary(title, author, pages, read){
 }
 
 function displayBook(bookid){
-    var bookmodal = document.querySelector('bookmodal')
+    var bookmodal = document.querySelector('.bookmodal')
     bookmodal.style.display = 'block'
     createBooksModal(bookmodal, this.bookid)
 }
