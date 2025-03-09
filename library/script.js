@@ -54,8 +54,9 @@ function closeBook(){
 
 function createBooksModal(bookmodal, bookid){
     var parentmodal = bookmodal
+    console.log(myLibrary)
     var item = myLibrary.filter((item) => item.id == bookid )
-
+    console.log(item)
     var title = parentmodal.querySelector('.title')
     title.innerHTML = item.title
 
