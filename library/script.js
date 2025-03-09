@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function(){
     var bookslist = document.querySelectorAll('.book')
     bookslist.forEach(function(book){
         book.addEventListener('click', function(book){
-            displayBook('modal-1')
+            displayBook(book.getAttribute('id'))
         })
     })
 
@@ -41,9 +41,10 @@ function addBooktoLibrary(title, author, pages, read){
     myLibrary.push(book)
 }
 
-function displayBook(bookmodal){
-    var bookmodals = document.querySelector(`#${bookmodal}`)
-    bookmodals.style.display = 'block'
+function displayBook(bookid){
+    var bookmodal = document.querySelector('bookmodal')
+    bookmodal.style.display = 'block'
+    createBooksModal(bookmodal, this.bookid)
 }
 
 function closeBook(){
@@ -52,25 +53,18 @@ function closeBook(){
     })
 }
 
-function createBooksModal(){
-    
-    myLibrary.map((item) => {
-        var book = document.createElement('div')
-        book.id = item.id
-        book.classList.add('book')
+function createBooksModal(bookmodal, bookid){
+    var parentmodal = bookmodal
+    var item = myLibrary.filter((item) => item.id == bookid )
 
-        var title = document.createElement('h2')
-        title.innerHTML = item.title
+    var title = parentmodal.querySelector('.title')
+    title.innerHTML = item.title
 
-        var author = document.createElement('p')
-        author.innerHTML = item.author
+    var author =parentmodal.querySelector('.author')
+    author.innerHTML = item.author
 
-        var pages = document.createElement('p')
-        pages.innerHTML = item.pages
-
-        book.append(title, author, pages)
-        rack.append(book)
-    })
+    var pages = parentmodal.querySelector('.author')
+    pages.innerHTML = item.pages
 }
 
 function createBooks(){

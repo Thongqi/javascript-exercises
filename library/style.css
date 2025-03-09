@@ -4,12 +4,18 @@
     width: 25px;
 }
 
-.modal{
+.book-modal{
     display: none;
     position: fixed;
     z-index: 1;
-    height: 100%;
-    width: 100%;
+    height: 40vh;
+    width: 30vw;
+    background-color: brown;
+}
+
+.modal-content{
+    width: 80%;
+    height: 80%;
 }
 
 .rack {
