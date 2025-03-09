@@ -58,13 +58,13 @@ function createBooksModal(bookmodal, bookid){
     var item = myLibrary.filter((item) => item.id == bookid )
     console.log(item)
     var title = parentmodal.querySelector('.title')
-    title.innerHTML = item.title
+    title.innerHTML = item[0].title
 
     var author =parentmodal.querySelector('.author')
-    author.innerHTML = item.author
+    author.innerHTML = item[0].author
 
     var pages = parentmodal.querySelector('.pages')
-    pages.innerHTML = item.pages
+    pages.innerHTML = item[0].pages
 }
 
 function createBooks(){
