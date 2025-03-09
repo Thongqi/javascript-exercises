@@ -42,15 +42,14 @@ function addBooktoLibrary(title, author, pages, read){
 }
 
 function displayBook(bookid){
-    var bookmodal = document.querySelector('.bookmodal')
+    var bookmodal = document.querySelector('.book-modal')
     bookmodal.style.display = 'block'
     createBooksModal(bookmodal, this.bookid)
 }
 
 function closeBook(){
-    document.querySelectorAll('.bookmodal').forEach((modal) => {
-        modal.style.display = 'none'
-    })
+    document.querySelector('.book-modal').style.display = 'none'
+
 }
 
 function createBooksModal(bookmodal, bookid){
