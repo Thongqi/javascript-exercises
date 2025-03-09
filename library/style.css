@@ -1,7 +1,7 @@
 .book {
-    height: 40px;
+    height: 120px;
     background-color: palevioletred;
-    width: 10px;
+    width: 25px;
 }
 
 .modal{
@@ -13,9 +13,9 @@
 }
 
 .rack {
-    border-bottom: 5px brown solid;
-    height: 50px;
+    border-bottom: 15px brown solid;
+    height: 125px;
     display: flex;
-    justify-self: baseline;
+    align-items: baseline;
 }
 

@@ -42,6 +42,7 @@ function addBooktoLibrary(title, author, pages, read){
 }
 
 function displayBook(bookmodal){
+    var bookmodal = document.querySelector(`.${bookmodal}`)
     bookmodal.style.display = 'block'
 }
 
@@ -51,8 +52,8 @@ function closeBook(){
     })
 }
 
-function createBooks(){
-    var rack = document.querySelector('.rack')
+function createBooksModal(){
+    
     myLibrary.map((item) => {
         var book = document.createElement('div')
         book.id = item.id
@@ -68,6 +69,17 @@ function createBooks(){
         pages.innerHTML = item.pages
 
         book.append(title, author, pages)
+        rack.append(book)
+    })
+}
+
+function createBooks(){
+    var rack = document.querySelector('.rack')
+    myLibrary.map((item) => {
+        var book = document.createElement('div')
+        book.id = item.id
+        book.classList.add('book')
+
         rack.append(book)
     })
 }
