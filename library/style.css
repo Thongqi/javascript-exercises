@@ -1,0 +1,21 @@
+.book {
+    height: 40px;
+    background-color: palevioletred;
+    width: 10px;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.rack {
+    border-bottom: 5px brown solid;
+    height: 50px;
+    display: flex;
+    justify-self: baseline;
+}
+
