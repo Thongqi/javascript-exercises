@@ -160,7 +160,7 @@ function checkBrightness(color){
 }
 
 function displayForm (){
-    document.querySelector('.form-add-boook').style.display = 'block'
+    document.querySelector('.form-add-book').style.display = 'block'
 
     var addbutton = document.querySelector('#add-personal-book')
     addbutton.addEventListener('click', function(){
