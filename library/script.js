@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     window.onclick = function(e){
         console.log(e.target)
-        if (e.target != document.querySelector('.book')){
+        if (!e.target.classList.contains('book')){
             closeBook()
         }
     }
@@ -95,7 +95,7 @@ function createBooks(){
         book.innerHTML = item.title
 
         //random color the book
-        var bookcolor = '#' + randomColor
+        var bookcolor = '#' + randomColor()
         console.log(bookcolor)
         book.style.backgroundColor = bookcolor
 
@@ -106,20 +106,20 @@ function createBooks(){
     })
 }
 
-const randomColor = (() => {
-    "use strict";
+function randomColor () {
+    "use strict"
   
     const randomInt = (min, max) => {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    };
+      return Math.floor(Math.random() * (max - min + 1)) + min
+    }
   
-    return () => {
-      var h = randomInt(0, 360);
-      var s = randomInt(42, 98);
-      var l = randomInt(40, 90);
-      return `hsl(${h},${s}%,${l}%)`;
-    };
-})();
+
+    var h = randomInt(0, 360)
+    var s = randomInt(42, 98)
+    var l = randomInt(40, 90)
+    return `hsl(${h},${s}%,${l}%)`
+
+}
 
 function checkBrightness(color){
     var c = color.substring(1);      // strip #
