@@ -123,7 +123,7 @@ function randomColor () {
 
 function checkBrightness(color){
     let sep = color.indexOf(",") > -1 ? "," : " ";
-    hsl = hsl.substr(4).split(")")[0].split(sep);
+    hsl = color.substr(4).split(")")[0].split(sep);
 
     let h = hsl[0],
       s = hsl[1].substr(0,hsl[1].length - 1) / 100,
