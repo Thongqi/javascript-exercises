@@ -55,7 +55,7 @@ function Book(title, author, pages, read){
     this.id = crypto.randomUUID();
 }
 
-function addBooktoPublickLibrary(title, author, pages, read){
+function addBooktoPublicLibrary(title, author, pages, read){
     var book = new Book (title, author, pages, read)
     publicLibrary.push(book)
 }
@@ -78,8 +78,8 @@ function closeBook(){
 
 function createBooksModal(bookmodal, bookid){
     var parentmodal = bookmodal
-    console.log(myLibrary)
-    var item = myLibrary.filter((item) => item.id == bookid )
+    console.log(publicLibrary)
+    var item = publicLibrary.filter((item) => item.id == bookid )
     console.log(item)
     var title = parentmodal.querySelector('.title')
     title.innerHTML = item[0].title
@@ -96,7 +96,7 @@ function createBooksModal(bookmodal, bookid){
 
 function createBooks(){
     var rack = document.querySelector('.rack')
-    myLibrary.map((item) => {
+    publicLibrary.map((item) => {
         var book = document.createElement('div')
         book.id = item.id
         book.classList.add('book')
