@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', function(){
     createBooks()
 
     window.onclick = function(e){
-        console.log(e.target)
-        closeBook
+        if (e.target != document.querySelector('.book')){
+            closeBook()
+        }
     }
 
     var bookslist = document.querySelectorAll('.book')
@@ -79,6 +80,46 @@ function createBooks(){
         book.id = item.id
         book.classList.add('book')
 
+        //random color the book
+        var bookcolor = '#' + randomColor
+        book.style.backgroundColor = bookcolor
+
+        var fontcolor = checkBrightness(bookcolor)
+        book.style.color = fontcolor
+        
         rack.append(book)
     })
 }
+
+const randomColor = (() => {
+    "use strict";
+  
+    const randomInt = (min, max) => {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+  
+    return () => {
+      var h = randomInt(0, 360);
+      var s = randomInt(42, 98);
+      var l = randomInt(40, 90);
+      return `hsl(${h},${s}%,${l}%)`;
+    };
+  })();
+
+  function checkBrightness(color){
+    var c = color.substring(1);      // strip #
+    var rgb = parseInt(c, 16);   // convert rrggbb to decimal
+    var r = (rgb >> 16) & 0xff;  // extract red
+    var g = (rgb >>  8) & 0xff;  // extract green
+    var b = (rgb >>  0) & 0xff;  // extract blue
+
+    var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+
+    if (luma < 127) {
+        // pick a different colour
+        return 'white'
+    }
+    else{
+        return 'black'
+    }
+  }
