@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function(){
         })
     })
     console.log(window)
-    window.onclick(closeBook())
+    window.onclick = closeBook
     
 })
 
