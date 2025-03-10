@@ -3,6 +3,11 @@ const myLibrary = []
 document.addEventListener('DOMContentLoaded', function(){
     createBooks()
 
+    window.onclick = function(e){
+        console.log(e.target)
+        closeBook
+    }
+
     var bookslist = document.querySelectorAll('.book')
     bookslist.forEach(function(book){
         book.addEventListener('click', function(){
@@ -10,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function(){
         })
     })
     console.log(window)
-    window.onclick = closeBook
+    
     
 })
 
