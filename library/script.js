@@ -95,7 +95,7 @@ function createBooks(){
         book.innerHTML = item.title
 
         //random color the book
-        var bookcolor = '#' + randomColor()
+        var bookcolor = randomColor()
         console.log(bookcolor)
         book.style.backgroundColor = bookcolor
 
@@ -122,7 +122,7 @@ function randomColor () {
 }
 
 function checkBrightness(color){
-    let sep = hsl.indexOf(",") > -1 ? "," : " ";
+    let sep = color.indexOf(",") > -1 ? "," : " ";
     hsl = hsl.substr(4).split(")")[0].split(sep);
 
     let h = hsl[0],
