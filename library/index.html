@@ -20,7 +20,7 @@
 
     <div>
         <h2>Public Library</h2>
-        <div class="rack public">
+        <div class="rack publicrack">
             <div class="book-modal">
                 <div class="modal-content text-center">
                     <p class="title font-bold"></p>
@@ -31,13 +31,13 @@
         </div>
 
         <h2>My Library</h2>
-        <div class="rack personal">
+        <div class="rack personalrack">
             <button class="add-book text-sm" id="add-book">Add book to shelf</button>
         </div>
     </div>
 
-    <div class="form-add-book" id="form-add-book">
-        <h3>Add book to your shelf</h3>
+    <div class="form-add-book " id="form-add-book">
+        <h3 class="text-center">Add book to your shelf</h3>
         <div>
             <label for="addtitle">Title<span aria-label="required">*</span></label>
             <input type="text" name="addtitle" id="addtitle" required>
@@ -51,7 +51,7 @@
             <input type="text" name="addpage" id="addpage">
         </div>
         <div>
-            <label class="switch">
+            <label class="switch">Read
                 <input type="checkbox" id="addread">
                 <span class="slider round"></span>
             </label>

@@ -2,7 +2,7 @@ const publicLibrary = []
 const personalLibrary = []
 
 document.addEventListener('DOMContentLoaded', function(){
-    createBooks()
+    createBooks('public')
 
     window.onclick = function(e){
         console.log(e.target)
@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function(){
     var addbook = document.querySelector('#add-book')
     addbook.addEventListener('click', function(){
         displayForm()
+
     })
     
 })
@@ -94,26 +95,53 @@ function createBooksModal(bookmodal, bookid){
     parentmodal.style.color = document.querySelector(`#${bookid}`).style.color
 }
 
-function createBooks(){
-    var rack = document.querySelector('.rack')
-    publicLibrary.map((item) => {
-        var book = document.createElement('div')
-        book.id = item.id
-        book.classList.add('book')
+function createBooks(people){
+    if (people == 'public'){
+        var rack = document.querySelector('.publicrack')
+        publicLibrary.map((item) => {
+            var book = document.createElement('div')
+            book.id = item.id
+            book.classList.add('book')
+    
+            // add title to book case
+            book.innerHTML = item.title
+    
+            //random color the book
+            var bookcolor = randomColor()
+            console.log(bookcolor)
+            book.style.backgroundColor = bookcolor
+    
+            var fontcolor = checkBrightness(bookcolor)
+            book.style.color = fontcolor
+            
+            rack.append(book)
+        })
+    }
+    else if (people == 'personal'){
+        var rack = document.querySelector('.personalrack')
 
-        // add title to book case
-        book.innerHTML = item.title
+        rack.innerHTML = ''
 
-        //random color the book
-        var bookcolor = randomColor()
-        console.log(bookcolor)
-        book.style.backgroundColor = bookcolor
-
-        var fontcolor = checkBrightness(bookcolor)
-        book.style.color = fontcolor
-        
-        rack.append(book)
-    })
+        personalLibrary.map((item) => {
+            var book = document.createElement('div')
+            book.id = item.id
+            book.classList.add('book')
+    
+            // add title to book case
+            book.innerHTML = item.title
+    
+            //random color the book
+            var bookcolor = randomColor()
+            console.log(bookcolor)
+            book.style.backgroundColor = bookcolor
+    
+            var fontcolor = checkBrightness(bookcolor)
+            book.style.color = fontcolor
+            
+            rack.append(book)
+        })
+    }
+    
 }
 
 function randomColor () {
@@ -171,12 +199,14 @@ function displayForm (){
         }
 
         else{
-            var author = document.querySelector('#addauthor')
-            var pages = document.querySelector('#addpages')
-            var read = document.querySelector('#addread')
+            var author = document.querySelector('#addauthor').innerHTML
+            var pages = document.querySelector('#addpages').innerHTML
+            var read = document.querySelector('#addread').innerHTML
             console.log(title, author, pages, read)
 
             addBooktoPersonalLibrary(title, author, pages, read)
+
+            createBooks('personal')
         }
 
     })
