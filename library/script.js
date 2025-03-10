@@ -136,7 +136,7 @@ function checkBrightness(color){
 
     const r = 255 * f(0)
     const g = 255 * f(8)
-    const b = 255 * f(4)];
+    const b = 255 * f(4)
 
     var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
 
