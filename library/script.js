@@ -1,4 +1,5 @@
-const myLibrary = []
+const publicLibrary = []
+const personalLibrary = []
 
 document.addEventListener('DOMContentLoaded', function(){
     createBooks()
@@ -18,24 +19,28 @@ document.addEventListener('DOMContentLoaded', function(){
     })
     console.log(window)
     
+    var addbook = document.querySelector('#add-book')
+    addbook.addEventListener('click', function(){
+        displayForm()
+    })
     
 })
 
-addBooktoLibrary(
+addBooktoPublicLibrary(
     '嫌われる勇気',
     '岸見 一郎',
     '296',
     true,
 )
 
-addBooktoLibrary(
+addBooktoPublicLibrary(
     'A Man Called Ove',
     'Fredrik Backman',
     '337',
     true,
 )
 
-addBooktoLibrary(
+addBooktoPublicLibrary(
     'Between Two Kingdoms: A Memoir of a Life Interrupted',
     'Suleika Jaouad ',
     '368',
@@ -50,9 +55,14 @@ function Book(title, author, pages, read){
     this.id = crypto.randomUUID();
 }
 
-function addBooktoLibrary(title, author, pages, read){
+function addBooktoPublickLibrary(title, author, pages, read){
     var book = new Book (title, author, pages, read)
-    myLibrary.push(book)
+    publicLibrary.push(book)
+}
+
+function addBooktoPersonalLibrary(title, author, pages, read){
+    var book = new Book (title, author, pages, read)
+    publicLibrary.push(book)
 }
 
 function displayBook(bookid){
@@ -149,4 +159,25 @@ function checkBrightness(color){
     }
 }
 
- 
+function displayForm (){
+    document.querySelector('.form-add-boook').style.display = 'block'
+
+    var addbutton = document.querySelector('#add-personal-book')
+    addbutton.addEventListener('click', function(){
+        var title = document.querySelector('#addtitle')
+
+        if (!title){
+            document.querySelector('.msg').innerHTML = 'Title is required'
+        }
+
+        else{
+            var author = document.querySelector('#addauthor')
+            var pages = document.querySelector('#addpages')
+            var read = document.querySelector('#addread')
+            console.log(title, author, pages, read)
+
+            addBooktoPersonalLibrary(title, author, pages, read)
+        }
+
+    })
+}

@@ -16,7 +16,7 @@
     <title>Room of Knowledge📚</title>
 </head>
 <body>
-    <h1>Library</h1>
+    <h1 class="text-3xl font-extrabold text-center">Library</h1>
 
     <div>
         <h2>Public Library</h2>
@@ -25,15 +25,39 @@
                 <div class="modal-content text-center">
                     <p class="title font-bold"></p>
                     <p class="author text-sm"></p>
-                    <p><span class="pages text-xs font-thin"></span> pages</p>
+                    <p class="text-xs"><span class="pages"></span> pages</p>
                 </div>
             </div>
         </div>
 
         <h2>My Library</h2>
         <div class="rack personal">
-            <button class="add-book" id="add-book">Add book to shelf</button>
+            <button class="add-book text-sm" id="add-book">Add book to shelf</button>
         </div>
+    </div>
+
+    <div class="form-add-book" id="form-add-book">
+        <h3>Add book to your shelf</h3>
+        <div>
+            <label for="addtitle">Title<span aria-label="required">*</span></label>
+            <input type="text" name="addtitle" id="addtitle" required>
+        </div>
+        <div>
+            <label for="addauthor">Author</label>
+            <input type="text" name="addauthor" id="addauthor">
+        </div>
+        <div>
+            <label for="addpage">No. of page</label>
+            <input type="text" name="addpage" id="addpage">
+        </div>
+        <div>
+            <label class="switch">
+                <input type="checkbox" id="addread">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <p class="msg"></p>
+        <button id="add-personal-book">Add</button>
     </div>
 </body>
 </html>
