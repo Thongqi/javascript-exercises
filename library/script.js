@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function(){
             displayBook(this.getAttribute('id'))
         })
     })
-
-    window.addEventListener('click', closeBook())
+    console.log(window)
+    window.onclick(closeBook())
     
 })
 
