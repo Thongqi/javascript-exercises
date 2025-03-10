@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function(){
     createBooks()
 
     window.onclick = function(e){
+        console.log(e.target)
         if (e.target != document.querySelector('.book')){
             closeBook()
         }
@@ -32,6 +33,13 @@ addBooktoLibrary(
     'Fredrik Backman',
     '337',
     true,
+)
+
+addBooktoLibrary(
+    'Between Two Kingdoms: A Memoir of a Life Interrupted',
+    'Suleika Jaouad ',
+    '368',
+    true
 )
 
 function Book(title, author, pages, read){
@@ -71,6 +79,9 @@ function createBooksModal(bookmodal, bookid){
 
     var pages = parentmodal.querySelector('.pages')
     pages.innerHTML = item[0].pages
+
+    parentmodal.style.backgroundColor = document.querySelector(`#${bookid}`).style.backgroundColor
+    parentmodal.style.color = document.querySelector(`#${bookid}`).style.color
 }
 
 function createBooks(){
@@ -80,8 +91,12 @@ function createBooks(){
         book.id = item.id
         book.classList.add('book')
 
+        // add title to book case
+        book.innerHTML = item.title
+
         //random color the book
         var bookcolor = '#' + randomColor
+        console.log(bookcolor)
         book.style.backgroundColor = bookcolor
 
         var fontcolor = checkBrightness(bookcolor)
@@ -104,9 +119,9 @@ const randomColor = (() => {
       var l = randomInt(40, 90);
       return `hsl(${h},${s}%,${l}%)`;
     };
-  })();
+})();
 
-  function checkBrightness(color){
+function checkBrightness(color){
     var c = color.substring(1);      // strip #
     var rgb = parseInt(c, 16);   // convert rrggbb to decimal
     var r = (rgb >> 16) & 0xff;  // extract red
@@ -122,4 +137,6 @@ const randomColor = (() => {
     else{
         return 'black'
     }
-  }
+}
+
+ 

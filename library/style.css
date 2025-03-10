@@ -3,6 +3,16 @@ body{
     width: 80vw;
     margin: auto;
     font-family: "Quicksand", sans-serif;
+    background-color: cadetblue;
+}
+
+.add-book{
+    background-color: blanchedalmond;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 2px 3px;
+    box-shadow: 2px 2px 4px gray;
+    margin-left: auto;
 }
 .book {
     height: 140px;
@@ -24,6 +34,11 @@ body{
     background-color: brown;
     aspect-ratio: 1/1.2;
     left: 40vw;
+}
+
+.book-modal .title{
+    font-weight: bold;
+    
 }
 
 .modal-content{
