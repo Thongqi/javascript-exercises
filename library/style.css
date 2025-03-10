@@ -10,9 +10,11 @@ body{
     background-color: blanchedalmond;
     border-radius: 5px;
     width: fit-content;
-    padding: 2px 3px;
+    padding: 5px;
     box-shadow: 2px 2px 4px gray;
     margin-left: auto;
+    height: fit-content;
+
 }
 .book {
     height: 140px;
@@ -34,11 +36,12 @@ body{
     background-color: brown;
     aspect-ratio: 1/1.2;
     left: 40vw;
+    box-shadow: 5px 5px #f3f3f3, 3px 3px #fdfdfd, 8px 8px #160a0a
 }
 
 .book-modal .title{
     font-weight: bold;
-    
+
 }
 
 .modal-content{

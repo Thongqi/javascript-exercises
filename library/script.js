@@ -122,11 +122,21 @@ function randomColor () {
 }
 
 function checkBrightness(color){
-    var c = color.substring(1);      // strip #
-    var rgb = parseInt(c, 16);   // convert rrggbb to decimal
-    var r = (rgb >> 16) & 0xff;  // extract red
-    var g = (rgb >>  8) & 0xff;  // extract green
-    var b = (rgb >>  0) & 0xff;  // extract blue
+    let sep = hsl.indexOf(",") > -1 ? "," : " ";
+    hsl = hsl.substr(4).split(")")[0].split(sep);
+
+    let h = hsl[0],
+      s = hsl[1].substr(0,hsl[1].length - 1) / 100,
+      l = hsl[2].substr(0,hsl[2].length - 1) / 100;
+
+    const k = (n) => (n + h / 30) % 12;
+    const a = s * Math.min(l, 1 - l);
+    const f = (n) =>
+    l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+
+    const r = 255 * f(0)
+    const g = 255 * f(8)
+    const b = 255 * f(4)];
 
     var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
 
