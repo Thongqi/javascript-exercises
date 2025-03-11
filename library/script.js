@@ -63,7 +63,7 @@ function addBooktoPublicLibrary(title, author, pages, read){
 
 function addBooktoPersonalLibrary(title, author, pages, read){
     var book = new Book (title, author, pages, read)
-    publicLibrary.push(book)
+    personalLibrary.push(book)
 }
 
 function displayBook(bookid){
@@ -192,21 +192,23 @@ function displayForm (){
 
     var addbutton = document.querySelector('#add-personal-book')
     addbutton.addEventListener('click', function(){
-        var title = document.querySelector('#addtitle')
+        var title = document.querySelector('#addtitle').value
 
         if (!title){
             document.querySelector('.msg').innerHTML = 'Title is required'
         }
 
         else{
-            var author = document.querySelector('#addauthor').innerHTML
-            var pages = document.querySelector('#addpages').innerHTML
-            var read = document.querySelector('#addread').innerHTML
+            var author = document.querySelector('#addauthor').value
+            var pages = document.querySelector('#addpage').value
+            var read = document.querySelector('#addread').value
             console.log(title, author, pages, read)
 
             addBooktoPersonalLibrary(title, author, pages, read)
 
             createBooks('personal')
+
+            document.querySelector('.form-add-book').style.display = 'none'
         }
 
     })
