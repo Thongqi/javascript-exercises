@@ -4,16 +4,16 @@ const personalLibrary = []
 document.addEventListener('DOMContentLoaded', function(){
     createBooks('public')
 
-    // window.onclick = function(e){
-    //     console.log(e.target)
+    window.onclick = function(e){
+        console.log(e.target)
 
-    //     // close modal
-    //     if (!e.target.classList.contains('book') && !e.target.classList.contains('modal-content') && !e.target.classList.contains('remove')){
-    //         closeBook()
-    //     }
+        // close modal
+        if (!e.target.classList.contains('book') && !e.target.classList.contains('modal-content') && !e.target.classList.contains('remove')){
+            closeBook()
+        }
 
 
-    // }
+    }
 
     var bookslist = document.querySelectorAll('.book')
     bookslist.forEach(function(book){
@@ -225,7 +225,7 @@ function displayForm (){
 
     })
     removeBook()
-    
+
     closeForm()
 }
 

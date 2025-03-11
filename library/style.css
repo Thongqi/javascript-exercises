@@ -178,7 +178,7 @@ input {
     justify-content: space-between
 }
 
-.modal-content .remove {
+.book-modal .remove {
     position: absolute;
   background-color: gray;
   top: 10px;
