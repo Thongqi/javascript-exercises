@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     window.onclick = function(e){
         console.log(e.target)
-        if (!e.target.classList.contains('book')){
+        if (!e.target.classList.contains('book') || !e.target.classList.contains('modal-content')){
             closeBook()
         }
     }
@@ -91,8 +91,11 @@ function createBooksModal(bookmodal, bookid){
     var pages = parentmodal.querySelector('.pages')
     pages.innerHTML = item[0].pages
 
-    parentmodal.style.backgroundColor = document.querySelector(`#${bookid}`).style.backgroundColor
-    parentmodal.style.color = document.querySelector(`#${bookid}`).style.color
+    var read = parentmodal.querySelector('.read')
+    pages.innerHTML = item[0].read?'Read':'In progress'
+
+    parentmodal.style.backgroundColor = document.getElementbyId(`${bookid}`).style.backgroundColor
+    parentmodal.style.color = document.getElementbyId(`${bookid}`).style.color
 }
 
 function createBooks(people){
@@ -201,7 +204,7 @@ function displayForm (){
         else{
             var author = document.querySelector('#addauthor').value
             var pages = document.querySelector('#addpage').value
-            var read = document.querySelector('#addread').value
+            var read = document.querySelector('#addread').is(':checked')
             console.log(title, author, pages, read)
 
             addBooktoPersonalLibrary(title, author, pages, read)
@@ -211,5 +214,17 @@ function displayForm (){
             document.querySelector('.form-add-book').style.display = 'none'
         }
 
+    })
+}
+
+function toggleReadStatus(){
+    var readstatus = document.querySelector('read')
+
+    readstatus.addEventListener('click', function(){
+        var title = readstatus.parentNode.querySelector('.title')
+
+        var rack = pages.parentNode.parentNode.parentNode.classList.contains('publicrack')?'publicLibrary':'personalLibrary'
+
+        var item = rack.filter((item) => item.title == title )
     })
 }
