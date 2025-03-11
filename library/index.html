@@ -21,26 +21,24 @@
     <div>
         <h2>Public Library</h2>
         <div class="rack publicrack">
-            <div class="book-modal">
-                <div class="modal-content text-center">
-                    <p class="title font-bold"></p>
-                    <p class="author text-sm"></p>
-                    <p class="text-xs"><span class="pages"></span> pages</p>
-                    <p class="read text-xs font-extralight"></p>
-                </div>
-                <button class="remove">Remove this book</button>
-            </div>
         </div>
 
-        <div class="flex justify-between pb-4">
+        <div class="flex justify-between items-baseline">
             <h2>My Library</h2>
             <button class="add-book text-sm" id="add-book">Add book to shelf</button>
         </div>
-        
-
-        <div class="rack personalrack">
-            
+        <div class="rack personalrack">   
         </div>
+    </div>
+
+    <div class="book-modal">
+        <div class="modal-content text-center">
+            <p class="title font-bold"></p>
+            <p class="author text-sm"></p>
+            <p class="text-xs"><span class="pages"></span> pages</p>
+            <p class="read text-xs font-extralight"></p>
+        </div>
+        <button class="remove">Remove this book</button>
     </div>
 
     <form class="form-add-book " id="form-add-book">

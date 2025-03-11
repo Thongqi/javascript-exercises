@@ -9,7 +9,7 @@ body{
 h2{
     font-size: 1.5rem;
     font-weight: 500;
-    padding-top: 20px;
+    padding: 20px 0;
 }
 
 button,
