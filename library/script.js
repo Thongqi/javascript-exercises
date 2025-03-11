@@ -96,8 +96,8 @@ function createBooksModal(bookmodal, bookid){
     var read = parentmodal.querySelector('.read')
     pages.innerHTML = item[0].read?'Read':'In progress'
 
-    parentmodal.style.backgroundColor = document.getElementbyId(`${bookid}`).style.backgroundColor
-    parentmodal.style.color = document.getElementbyId(`${bookid}`).style.color
+    parentmodal.style.backgroundColor = document.getElementById(`${bookid}`).style.backgroundColor
+    parentmodal.style.color = document.getElementById(`${bookid}`).style.color
 
     
 }
