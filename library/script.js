@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function(){
         console.log(e.target)
 
         // close modal
-        if (!e.target.classList.contains('book') && !e.target.classList.contains('modal-content')){
+        if (!e.target.classList.contains('book') && !e.target.classList.contains('modal-content') && !e.target.classList.contains('remove')){
             closeBook()
         }
 
@@ -98,7 +98,7 @@ function createBooksModal(bookmodal, bookid){
     toggleReadStatus(item[0])
 
     var read = parentmodal.querySelector('.read')
-    pages.innerHTML = item[0].read?'Read':'In progress'
+    read.innerHTML = item[0].read?'Read':'In progress'
 
     parentmodal.style.backgroundColor = document.getElementById(`${bookid}`).style.backgroundColor
     parentmodal.style.color = document.getElementById(`${bookid}`).style.color
@@ -213,7 +213,7 @@ function displayForm (){
         else{
             var author = document.querySelector('#addauthor').value
             var pages = document.querySelector('#addpage').value
-            var read = document.querySelector('#addread').is(':checked')
+            var read = document.querySelector('#addread').checked?True:False
             console.log(title, author, pages, read)
 
             addBooktoPersonalLibrary(title, author, pages, read)
