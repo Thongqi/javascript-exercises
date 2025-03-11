@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     window.onclick = function(e){
         console.log(e.target)
-        if (!e.target.classList.contains('book') || !e.target.classList.contains('modal-content')){
+        if (!e.target.classList.contains('book') && !e.target.classList.contains('modal-content')){
             closeBook()
         }
     }

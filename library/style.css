@@ -59,6 +59,7 @@ input {
     background-color: brown;
     aspect-ratio: 1/1.2;
     left: 40vw;
+    top: 150px;
     box-shadow: 5px 5px #f3f3f3, 3px 3px #fdfdfd, 8px 8px #160a0a;
     
 }
