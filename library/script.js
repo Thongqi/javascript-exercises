@@ -4,16 +4,16 @@ const personalLibrary = []
 document.addEventListener('DOMContentLoaded', function(){
     createBooks('public')
 
-    window.onclick = function(e){
-        console.log(e.target)
+    // window.onclick = function(e){
+    //     console.log(e.target)
 
-        // close modal
-        if (!e.target.classList.contains('book') && !e.target.classList.contains('modal-content') && !e.target.classList.contains('remove')){
-            closeBook()
-        }
+    //     // close modal
+    //     if (!e.target.classList.contains('book') && !e.target.classList.contains('modal-content') && !e.target.classList.contains('remove')){
+    //         closeBook()
+    //     }
 
 
-    }
+    // }
 
     var bookslist = document.querySelectorAll('.book')
     bookslist.forEach(function(book){
@@ -213,7 +213,7 @@ function displayForm (){
         else{
             var author = document.querySelector('#addauthor').value
             var pages = document.querySelector('#addpage').value
-            var read = document.querySelector('#addread').checked?True:False
+            var read = document.querySelector('#addread').checked?'True':'False'
             console.log(title, author, pages, read)
 
             addBooktoPersonalLibrary(title, author, pages, read)
@@ -224,7 +224,8 @@ function displayForm (){
         }
 
     })
-
+    removeBook()
+    
     closeForm()
 }
 
@@ -267,7 +268,6 @@ function closeForm(){
 
     closeform.addEventListener('click', function(){
         var form = document.querySelector('.form-add-book')
-
         form.style.display = 'none'
     })
 }

@@ -178,6 +178,18 @@ input {
     justify-content: space-between
 }
 
+.modal-content .remove {
+    position: absolute;
+  background-color: gray;
+  top: 10px;
+  bottom: -50px;
+  left: 20%;
+  border-radius: 5px;
+  padding: 2px 4px;
+  width: fit-content;
+  font-size: 0.8rem
+}
+
 .rack {
     background-color: #504a37;
     border-bottom: 15px rgb(146, 84, 25) solid;
