@@ -74,10 +74,21 @@ input {
     position: fixed;
     height: fit-content;
     margin: auto;
-    padding: 10px;
+    padding: 20px;
     top: 150px;
     left: 40vw;
     background-color: white;
+}
+
+.form-add-book .close {
+    position: fixed;
+    height: 8px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: #7a7a7a76;
+    content: 'x';
+    right: 5%;
+    top: 5%;
 }
 
 .form-add-book div{
@@ -128,7 +139,7 @@ input {
     transition: .4s;
     height: 25px;
   border-radius: 25px;
-    background-color: #7a7a7a;
+    background-color: #b7b7b78b;
 
 }
 

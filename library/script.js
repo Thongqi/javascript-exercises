@@ -6,9 +6,13 @@ document.addEventListener('DOMContentLoaded', function(){
 
     window.onclick = function(e){
         console.log(e.target)
+
+        // close modal
         if (!e.target.classList.contains('book') && !e.target.classList.contains('modal-content')){
             closeBook()
         }
+
+
     }
 
     var bookslist = document.querySelectorAll('.book')
@@ -220,6 +224,8 @@ function displayForm (){
         }
 
     })
+
+    closeForm()
 }
 
 function toggleReadStatus(shownbook){
@@ -254,4 +260,14 @@ function removeBook(book){
         alert('this book has been successfully removed')
     })
 
+}
+
+function closeForm(){
+    var closeform = document.querySelector('.close')
+
+    closeform.addEventListener('click', function(){
+        var form = document.querySelector('.form-add-book')
+
+        form.style.display = 'none'
+    })
 }
