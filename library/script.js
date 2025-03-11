@@ -91,11 +91,15 @@ function createBooksModal(bookmodal, bookid){
     var pages = parentmodal.querySelector('.pages')
     pages.innerHTML = item[0].pages
 
+    toggleReadStatus(item[0])
+
     var read = parentmodal.querySelector('.read')
     pages.innerHTML = item[0].read?'Read':'In progress'
 
     parentmodal.style.backgroundColor = document.getElementbyId(`${bookid}`).style.backgroundColor
     parentmodal.style.color = document.getElementbyId(`${bookid}`).style.color
+
+    
 }
 
 function createBooks(people){
@@ -217,14 +221,19 @@ function displayForm (){
     })
 }
 
-function toggleReadStatus(){
+function toggleReadStatus(shownbook){
     var readstatus = document.querySelector('read')
 
     readstatus.addEventListener('click', function(){
-        var title = readstatus.parentNode.querySelector('.title')
-
         var rack = pages.parentNode.parentNode.parentNode.classList.contains('publicrack')?'publicLibrary':'personalLibrary'
 
-        var item = rack.filter((item) => item.title == title )
+        rack.map((item) => {
+            if (item.id == shownbook.id){
+                item.read = readstatus
+            }
+        })
+
+
+
     })
 }
