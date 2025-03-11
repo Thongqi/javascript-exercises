@@ -105,6 +105,7 @@ function createBooksModal(bookmodal, bookid){
 function createBooks(people){
     if (people == 'public'){
         var rack = document.querySelector('.publicrack')
+        rack.innerHTML = ''
         publicLibrary.map((item) => {
             var book = document.createElement('div')
             book.id = item.id
@@ -222,10 +223,10 @@ function displayForm (){
 }
 
 function toggleReadStatus(shownbook){
-    var readstatus = document.querySelector('read')
+    var readstatus = document.querySelector('.read')
 
     readstatus.addEventListener('click', function(){
-        var rack = pages.parentNode.parentNode.parentNode.classList.contains('publicrack')?'publicLibrary':'personalLibrary'
+        var rack = readstatus.parentNode.parentNode.parentNode.classList.contains('publicrack')?'publicLibrary':'personalLibrary'
 
         rack.map((item) => {
             if (item.id == shownbook.id){
@@ -236,4 +237,21 @@ function toggleReadStatus(shownbook){
 
 
     })
+}
+
+function removeBook(book){
+    var remove = document.querySelector('.remove')
+
+    remove.addEventListener('click', function(){
+        var rack = remove.parentNode.parentNode.parentNode.classList.contains('publicrack')?'publicLibrary':'personalLibrary'
+
+        rack = rack.filter((item) => item.id != book.id)
+
+        closeBook()
+
+        createBooks()
+
+        alert('this book has been successfully removed')
+    })
+
 }
