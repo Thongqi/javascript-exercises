@@ -181,7 +181,6 @@ input {
 .book-modal .remove {
     position: absolute;
   background-color: gray;
-  top: 10px;
   bottom: -50px;
   left: 20%;
   border-radius: 5px;
