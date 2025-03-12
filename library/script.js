@@ -237,8 +237,6 @@ function displayForm (){
             createBooks('personal')
 
             document.querySelector('.form-add-book').style.display = 'none'
-
-            displayBook('personal')
         }
 
     })
@@ -290,8 +288,6 @@ function removeBook(book){
 
         createBooks(people)
 
-        displayBook(people)
-        
     })
 
     
