@@ -14,22 +14,27 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
     }
-    setInterval(() => {
-        var bookslist = document.querySelectorAll('.book')
-    }, 500);
-    
-    bookslist.forEach(function(book){
-        book.addEventListener('click', function(){
-            displayBook(this.getAttribute('id'))
-        })
-    })
-    console.log(window)
-    
+
     var addbook = document.querySelector('#add-book')
     addbook.addEventListener('click', function(){
         displayForm()
 
     })
+    setInterval(() => {
+        var bookslist = document.querySelectorAll('.book')
+        bookslist.forEach(function(book){
+            book.addEventListener('click', function(){
+                displayBook(this.getAttribute('id'))
+            })
+        })
+        
+    }, 5);
+    
+    
+
+    console.log(window)
+    
+    
     
 })
 
