@@ -204,7 +204,8 @@ function displayForm (){
     document.querySelector('.form-add-book').style.display = 'block'
 
     var addbutton = document.querySelector('#add-personal-book')
-    addbutton.addEventListener('click', function(){
+    addbutton.addEventListener('click', function(e){
+        e.preventDefault()
         var title = document.querySelector('#addtitle').value
 
         if (!title){
@@ -251,17 +252,24 @@ function removeBook(book){
     var remove = document.querySelector('.remove')
 
     remove.addEventListener('click', function(){
-        if(publicLibrary.contains(book)){
-            var rack = 'publicLibrary'
+        if(publicLibrary.includes(book[0])){
+            var rack = publicLibrary
             var people = 'public'
         }
         else{
-            var rack = 'personalLibrary'
+            var rack = personalLibrary
             var people = 'personal'
         }
 
-        rack = rack.filter((item) => item.id != book.id)
+        rack = rack.filter((item) => item.id != book[0].id)
 
+        // update library
+        if(rack == 'publicLibrary'){
+            publicLibrary = rack
+        }
+        else{
+            personalLibrary = rack
+        }
         closeBook()
 
         createBooks(people)
