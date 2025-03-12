@@ -20,17 +20,16 @@ document.addEventListener('DOMContentLoaded', function(){
         displayForm()
 
     })
-    setInterval(() => {
-        var bookslist = document.querySelectorAll('.book')
-        bookslist.forEach(function(book){
-            book.addEventListener('click', function(){
-                displayBook(this.getAttribute('id'))
-            })
-        })
-        
+    
+    var bookslist  = setInterval(() => {
+        document.querySelectorAll('.book')
     }, 60);
     
-    
+    bookslist.forEach(function(book){
+        book.addEventListener('click', function(){
+            displayBook(this.getAttribute('id'))
+        })
+    })
 
     console.log(window)
     
@@ -292,7 +291,7 @@ function removeBook(book){
         
     })
 
-    alert('this book has been successfully removed')
+    
 
 }
 
