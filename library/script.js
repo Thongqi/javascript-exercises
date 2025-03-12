@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
     
     bookslist.forEach( book => {
-        book.addEventListener('click', function(){
+        book.onclick = function(){
             displayBook(this.getAttribute('id'))
-        })
+        }
     })
   
 
@@ -286,6 +286,7 @@ function removeBook(book){
         }
         closeBook()
 
+        console.log(publicLibrary)
         createBooks(people)
 
     })
