@@ -1,5 +1,5 @@
-const publicLibrary = []
-const personalLibrary = []
+var publicLibrary = []
+var personalLibrary = []
 
 document.addEventListener('DOMContentLoaded', function(){
     createBooks('public')
@@ -14,8 +14,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
     }
-
-    var bookslist = document.querySelectorAll('.book')
+    setInterval(() => {
+        var bookslist = document.querySelectorAll('.book')
+    }, 500);
+    
     bookslist.forEach(function(book){
         book.addEventListener('click', function(){
             displayBook(this.getAttribute('id'))
@@ -84,7 +86,15 @@ function closeBook(){
 function createBooksModal(bookmodal, bookid){
     var parentmodal = bookmodal
     console.log(publicLibrary)
-    var item = publicLibrary.filter((item) => item.id == bookid )
+
+    // check which rack is the book selected from
+    if(publicLibrary.filter((item) => item.id == bookid).length > 0){
+        var item = publicLibrary.filter((item) => item.id == bookid)
+    }
+    else{
+        var item = personalLibrary.filter((item) => item.id == bookid)
+    }
+
     console.log(item)
     var title = parentmodal.querySelector('.title')
     title.innerHTML = item[0].title
