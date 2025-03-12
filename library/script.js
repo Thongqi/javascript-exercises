@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function(){
             })
         })
         
-    }, 5);
+    }, 60);
     
     
 
@@ -289,8 +289,10 @@ function removeBook(book){
 
         createBooks(people)
 
-        alert('this book has been successfully removed')
+        
     })
+
+    alert('this book has been successfully removed')
 
 }
 

@@ -78,29 +78,44 @@ input {
     top: 150px;
     left: 40vw;
     background-color: white;
+    font-size: 0.9rem;
+}
+
+.form-add-book #add-personal-book{
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: peachpuff;
 }
 
 .form-add-book .close {
-    position: fixed;
-    height: 8px;
+    position: absolute;
+    height: 19px;
     aspect-ratio: 1/1;
     border-radius: 50%;
-    background-color: #7a7a7a76;
-    content: 'x';
-    right: 5%;
-    top: 5%;
+    right: 2%;
+    top: 2%;
+    padding: 0;
+    margin: 0;
+    color: #160a0a;
 }
 
 .form-add-book div{
-    padding-top: 5px;
+    padding-top: 8px;
     display: flex;
     flex-direction: column;
+}
+
+.form-add-book .msg {
+    color: red;
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 .form-add-book input{
     border: rgb(163, 163, 163) 1px solid;
     border-radius: 5px;
     padding: 2px 4px;
+    width: 100%;
 }
 
 .form-add-book input:hover{
@@ -138,29 +153,30 @@ input {
     -webkit-transition: .4s;
     transition: .4s;
     height: 25px;
-  border-radius: 25px;
-    background-color: #b7b7b78b;
+    border-radius: 25px;
+    background-color: #b9b7b78c;
+    border: 1px #b1b1b1 solid;
 
 }
 
 .form-add-book .slider::before{
     content: '';
-    height: 20px;
+    height: 19px;
     border-radius: 50%;
     aspect-ratio: 1/1;
     position: absolute;
     left: 4px;
-    top: 2px;
-    background-color: aqua;
+    top: 3px;
+    background-color: #86b2b2;
 
 }
 
 .form-add-book input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #4dc2c0;
 }
   
 .form-add-book   input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #4dc2c0;
 }
 
 .form-add-book  input:checked + .slider:before {
