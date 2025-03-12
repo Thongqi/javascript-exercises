@@ -20,16 +20,17 @@ document.addEventListener('DOMContentLoaded', function(){
         displayForm()
 
     })
-    
+
     var bookslist  = setInterval(() => {
         document.querySelectorAll('.book')
     }, 60);
     
-    bookslist.forEach(function(book){
+    Array.prototype.forEach.call(bookslist, book => {
         book.addEventListener('click', function(){
             displayBook(this.getAttribute('id'))
         })
     })
+  
 
     console.log(window)
     
