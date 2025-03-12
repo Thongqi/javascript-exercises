@@ -21,11 +21,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
     })
 
-    var bookslist  = setInterval(() => {
-        document.querySelectorAll('.book')
-    }, 60);
+    var bookslist = document.querySelectorAll('.book')
+
     
-    Array.prototype.forEach.call(bookslist, book => {
+    bookslist.forEach( book => {
         book.addEventListener('click', function(){
             displayBook(this.getAttribute('id'))
         })
@@ -238,6 +237,8 @@ function displayForm (){
             createBooks('personal')
 
             document.querySelector('.form-add-book').style.display = 'none'
+
+            displayBook('personal')
         }
 
     })
@@ -289,6 +290,7 @@ function removeBook(book){
 
         createBooks(people)
 
+        displayBook(people)
         
     })
 
