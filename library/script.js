@@ -275,14 +275,14 @@ function removeBook(book){
             var people = 'personal'
         }
 
-        rack = rack.filter((item) => item.id != book[0].id)
-
+        var newlibrary = rack.filter((item) => item.id != book[0].id)
+        console.log(rack)
         // update library
         if(rack == 'publicLibrary'){
-            publicLibrary = rack
+            publicLibrary = newlibrary
         }
         else{
-            personalLibrary = rack
+            personalLibrary = newlibrary
         }
         closeBook()
 
