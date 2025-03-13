@@ -138,9 +138,6 @@ function createBooksModal(bookmodal, bookid){
 
 function createBooks(people){
 
-    const observer = new MutationObserver(callback)
-    observer.disconnect()
-
     if (people == 'public'){
         var rack = document.querySelector('.publicrack')
         rack.innerHTML = ''
