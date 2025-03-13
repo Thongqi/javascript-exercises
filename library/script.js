@@ -224,7 +224,7 @@ function displayForm (){
     closeForm()
 }
 
-function addBook(item){
+function addBook(e){
     e.preventDefault()
     var title = document.querySelector('#addtitle').value
 
@@ -242,8 +242,8 @@ function addBook(item){
 
         createBooks('personal')
 
-        document.querySelector('.form-add-book').style.display = 'none'
-}
+        document.querySelector('.form-add-book').style.display = 'none' 
+    }
 }
 
 
