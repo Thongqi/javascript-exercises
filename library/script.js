@@ -272,7 +272,7 @@ function toggleReadStatus(shownbook){
 function removeBook(item){
     var book = item.previousElementSibling.querySelector('.title').innerHTML
 
-    if(publicLibrary.some(e => e.Name == book)){
+    if(publicLibrary.some(e => e.title == book)){
         var rack = publicLibrary
         var people = 'public'
     }
