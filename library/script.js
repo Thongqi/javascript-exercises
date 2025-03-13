@@ -21,13 +21,6 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     }) 
 
-<<<<<<< HEAD
-=======
-
-    }
-
-
->>>>>>> 5c50afec77e3e4cfed7095663e83e5f757bde8be
     var addbook = document.querySelector('#add-book')
     addbook.addEventListener('click', function(){
         displayForm()
