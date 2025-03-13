@@ -278,7 +278,7 @@ function removeBook(book){
         var newlibrary = rack.filter((item) => item.id != book[0].id)
         console.log(rack)
         // update library
-        if(rack == 'publicLibrary'){
+        if(people == 'public'){
             publicLibrary = newlibrary
         }
         else{
