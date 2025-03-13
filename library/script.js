@@ -12,7 +12,13 @@ document.addEventListener('DOMContentLoaded', function(){
             closeBook()
         }
 
-
+        var bookslist = document.querySelectorAll('.book')
+        
+        bookslist.forEach( book => {
+            book.onclick = function(){
+                displayBook(this.getAttribute('id'))
+            }
+        })
     }
 
     var addbook = document.querySelector('#add-book')
@@ -21,14 +27,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     })
 
-    var bookslist = document.querySelectorAll('.book')
-
     
-    bookslist.forEach( book => {
-        book.onclick = function(){
-            displayBook(this.getAttribute('id'))
-        }
-    })
   
 
     console.log(window)
