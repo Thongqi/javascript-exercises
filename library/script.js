@@ -114,9 +114,9 @@ function createBooksModal(bookmodal, bookid){
     parentmodal.style.color = document.getElementById(`${bookid}`).style.color
 
     // if removebutton click, only fire fucntion
-    var remove = document.querySelector('.remove')
+    var remove = document.getElementsByClassName('remove')
 
-    remove.addEventListener('click', function(){
+    remove.addEventListener('click', function(e){
         console.log(this)
         e.preventDefault()
         removeBook(item)
