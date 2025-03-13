@@ -4,20 +4,21 @@ var personalLibrary = []
 document.addEventListener('DOMContentLoaded', function(){
     createBooks('public')
 
-    var bookslist = document.querySelectorAll('.book')
-        
-    bookslist.forEach( book => {
-        book.addEventListener('click', function(){
-            displayBook(this.getAttribute('id'))
-        }) 
-    })
+    
 
     window.addEventListener('click', function(e){
         console.log(e.target)
-
+        
         // close modal
         if (!e.target.classList.contains('book') && !e.target.classList.contains('modal-content') && !e.target.classList.contains('remove')){
             closeBook()
+        }
+        else if(e.target.classList.contains('book')){
+            
+            e.target.addEventListener('click', function(){
+                displayBook(this.getAttribute('id'))
+            })
+
         }
     }) 
 
