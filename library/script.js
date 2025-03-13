@@ -270,9 +270,6 @@ function toggleReadStatus(shownbook){
         }
     })
 
-
-
-    })
 }
 
 function removeBook(item){
