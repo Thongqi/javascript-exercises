@@ -221,34 +221,31 @@ function checkBrightness(color){
 
 function displayForm (){
     document.querySelector('.form-add-book').style.display = 'block'
-
-    var addbutton = document.querySelector('#add-personal-book')
-    addbutton.addEventListener('click', function(e){
-        e.preventDefault()
-        var title = document.querySelector('#addtitle').value
-
-        if (!title){
-            document.querySelector('.msg').innerHTML = 'Title is required'
-        }
-
-        else{
-            var author = document.querySelector('#addauthor').value
-            var pages = document.querySelector('#addpage').value
-            var read = document.querySelector('#addread').checked?'True':'False'
-            console.log(title, author, pages, read)
-
-            addBooktoPersonalLibrary(title, author, pages, read)
-
-            createBooks('personal')
-
-            document.querySelector('.form-add-book').style.display = 'none'
-        }
-
-    })
-   
-
     closeForm()
 }
+
+function addBook(item){
+    e.preventDefault()
+    var title = document.querySelector('#addtitle').value
+
+    if (!title){
+        document.querySelector('.msg').innerHTML = 'Title is required'
+    }
+
+    else{
+        var author = document.querySelector('#addauthor').value
+        var pages = document.querySelector('#addpage').value
+        var read = document.querySelector('#addread').checked?'True':'False'
+        console.log(title, author, pages, read)
+
+        addBooktoPersonalLibrary(title, author, pages, read)
+
+        createBooks('personal')
+
+        document.querySelector('.form-add-book').style.display = 'none'
+}
+}
+
 
 function toggleReadStatus(shownbook){
     var book = shownbook.parentElement.querySelector('.title').innerHTML
