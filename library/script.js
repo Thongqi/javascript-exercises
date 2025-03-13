@@ -7,23 +7,27 @@ document.addEventListener('DOMContentLoaded', function(){
     var bookslist = document.querySelectorAll('.book')
         
     bookslist.forEach( book => {
-        book.onclick = function(){
+        book.addEventListener('click', function(){
             displayBook(this.getAttribute('id'))
-        }
+        }) 
     })
 
-    window.onclick = function(e){
+    window.addEventListener('click', function(e){
         console.log(e.target)
 
         // close modal
         if (!e.target.classList.contains('book') && !e.target.classList.contains('modal-content') && !e.target.classList.contains('remove')){
             closeBook()
         }
+    }) 
 
+<<<<<<< HEAD
+=======
 
     }
 
 
+>>>>>>> 5c50afec77e3e4cfed7095663e83e5f757bde8be
     var addbook = document.querySelector('#add-book')
     addbook.addEventListener('click', function(){
         displayForm()
