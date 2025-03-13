@@ -63,7 +63,7 @@ addBooktoPublicLibrary(
     'Between Two Kingdoms: A Memoir of a Life Interrupted',
     'Suleika Jaouad ',
     '368',
-    true
+    true,
 )
 
 function Book(title, author, pages, read){
@@ -116,8 +116,6 @@ function createBooksModal(bookmodal, bookid){
 
     var pages = parentmodal.querySelector('.pages')
     pages.innerHTML = item[0].pages
-
-    toggleReadStatus(item[0])
 
     var read = parentmodal.querySelector('.read')
     read.innerHTML = item[0].read?'Read':'In progress'
