@@ -225,7 +225,6 @@ function displayForm (){
 }
 
 function addBook(e){
-    e.preventDefault()
     var title = document.querySelector('#addtitle').value
 
     if (!title){
