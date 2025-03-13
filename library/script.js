@@ -124,15 +124,6 @@ function createBooksModal(bookmodal, bookid){
 
     parentmodal.style.backgroundColor = document.getElementById(`${bookid}`).style.backgroundColor
     parentmodal.style.color = document.getElementById(`${bookid}`).style.color
-
-    // if removebutton click, only fire fucntion
-    var remove = document.getElementsByClassName('remove')
-
-    remove[0].addEventListener('click', function(e){
-        console.log(this)
-        e.preventDefault()
-        removeBook(item)
-    })
     
 }
 
@@ -278,9 +269,10 @@ function toggleReadStatus(shownbook){
     })
 }
 
-function removeBook(book){
-    
-    if(publicLibrary.includes(book[0])){
+function removeBook(item){
+    var book = this.previousSibling.querySelector('.title').innerHTML
+
+    if(publicLibrary.some(e => e.Name == book)){
         var rack = publicLibrary
         var people = 'public'
     }
@@ -289,7 +281,7 @@ function removeBook(book){
         var people = 'personal'
     }
 
-    var newlibrary = rack.filter((item) => item.id != book[0].id)
+    var newlibrary = rack.filter((item) => item.title != book)
     console.log(rack)
     // update library
     if(people == 'public'){
