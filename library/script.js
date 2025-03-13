@@ -270,7 +270,7 @@ function toggleReadStatus(shownbook){
 }
 
 function removeBook(item){
-    var book = this.previousSibling.querySelector('.title').innerHTML
+    var book = this.previousElementSibling.querySelector('.title').innerHTML
 
     if(publicLibrary.some(e => e.Name == book)){
         var rack = publicLibrary
