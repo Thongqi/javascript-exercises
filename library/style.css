@@ -27,6 +27,9 @@ input {
     width: 80%;
 }
 
+button:hover{
+    scale: 1.02;
+}
 
 .add-book{
     background-color: blanchedalmond;
@@ -216,16 +219,24 @@ input {
     justify-content: space-between
 }
 
+.modal-content .read {
+    cursor: pointer;
+    margin-left: auto;
+}
+
 .book-modal .remove {
     position: absolute;
-  background-color: gray;
-  bottom: -50px;
-  left: 20%;
-  border-radius: 5px;
-  padding: 2px 4px;
-  width: fit-content;
-  font-size: 0.8rem
+    background-color: #a13030;
+    bottom: -50px;
+    left: 20%;
+    border-radius: 5px;
+    padding: 2px 4px;
+    width: fit-content;
+    font-size: 0.8rem;
+    color: white;
+    border: 1px white solid;
 }
+
 
 .rack {
     background-color: #504a37;
