@@ -4,6 +4,14 @@ var personalLibrary = []
 document.addEventListener('DOMContentLoaded', function(){
     createBooks('public')
 
+    var bookslist = document.querySelectorAll('.book')
+        
+    bookslist.forEach( book => {
+        book.onclick = function(){
+            displayBook(this.getAttribute('id'))
+        }
+    })
+
     window.onclick = function(e){
         console.log(e.target)
 
@@ -12,14 +20,9 @@ document.addEventListener('DOMContentLoaded', function(){
             closeBook()
         }
 
-        var bookslist = document.querySelectorAll('.book')
-        
-        bookslist.forEach( book => {
-            book.onclick = function(){
-                displayBook(this.getAttribute('id'))
-            }
-        })
+
     }
+
 
     var addbook = document.querySelector('#add-book')
     addbook.addEventListener('click', function(){
