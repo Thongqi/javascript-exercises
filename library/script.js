@@ -1,6 +1,18 @@
 var publicLibrary = []
 var personalLibrary = []
 
+var MutationObserver = window.WebKitMutationObserver;
+
+var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        
+    });
+    observer.disconnect();
+    console.log('pausing the observer');
+    // If needed for your use case, start observing in 1 second
+    setTimeout(() => observer.observe(), 1000);
+});
+
 document.addEventListener('DOMContentLoaded', function(){
     createBooks('public')
 
