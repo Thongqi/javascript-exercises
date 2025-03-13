@@ -14,11 +14,7 @@ document.addEventListener('DOMContentLoaded', function(){
             closeBook()
         }
         else if(e.target.classList.contains('book')){
-            
-            e.target.addEventListener('click', function(){
-                displayBook(this.getAttribute('id'))
-            })
-
+            displayBook(e.target.getAttribute('id'))
         }
     }) 
 
@@ -117,7 +113,12 @@ function createBooksModal(bookmodal, bookid){
     parentmodal.style.backgroundColor = document.getElementById(`${bookid}`).style.backgroundColor
     parentmodal.style.color = document.getElementById(`${bookid}`).style.color
 
-    removeBook(item)
+    // if removebutton click, only fire fucntion
+    var remove = document.querySelector('.remove')
+
+    remove.addEventListener('click', function(){
+        removeBook(item)
+    })
     
 }
 
@@ -263,35 +264,29 @@ function toggleReadStatus(shownbook){
 }
 
 function removeBook(book){
-    var remove = document.querySelector('.remove')
-
-    remove.addEventListener('click', function(){
-        if(publicLibrary.includes(book[0])){
-            var rack = publicLibrary
-            var people = 'public'
-        }
-        else{
-            var rack = personalLibrary
-            var people = 'personal'
-        }
-
-        var newlibrary = rack.filter((item) => item.id != book[0].id)
-        console.log(rack)
-        // update library
-        if(people == 'public'){
-            publicLibrary = newlibrary
-        }
-        else{
-            personalLibrary = newlibrary
-        }
-        closeBook()
-
-        console.log(publicLibrary)
-        createBooks(people)
-
-    })
-
     
+    if(publicLibrary.includes(book[0])){
+        var rack = publicLibrary
+        var people = 'public'
+    }
+    else{
+        var rack = personalLibrary
+        var people = 'personal'
+    }
+
+    var newlibrary = rack.filter((item) => item.id != book[0].id)
+    console.log(rack)
+    // update library
+    if(people == 'public'){
+        publicLibrary = newlibrary
+    }
+    else{
+        personalLibrary = newlibrary
+    }
+    closeBook()
+
+    console.log(publicLibrary)
+    createBooks(people)
 
 }
 
