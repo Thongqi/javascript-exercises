@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function(){
         console.log(e.target)
         
         // close modal
-        if (!e.target.classList.contains('book') && !e.target.classList.contains('modal-content') && !e.target.classList.contains('remove')){
+        if (!e.target.classList.contains('book') && !e.target.classList.contains('modal-content') && !e.target.classList.contains('remove') && !e.target.classList.contains('read')){
             closeBook()
         }
         else if(e.target.classList.contains('book')){
@@ -263,8 +263,9 @@ function toggleReadStatus(shownbook){
     }
 
     rack.map((item) => {
-        if (item.id == shownbook.id){
-            item.read = readstatus
+        if (item.title == book){
+            item.read = !item.read
+            shownbook.innerHTML = item.read?'Read':'In progress'
         }
     })
 
