@@ -128,7 +128,7 @@ function createBooksModal(bookmodal, bookid){
     // if removebutton click, only fire fucntion
     var remove = document.getElementsByClassName('remove')
 
-    remove.addEventListener('click', function(e){
+    remove[0].addEventListener('click', function(e){
         console.log(this)
         e.preventDefault()
         removeBook(item)
