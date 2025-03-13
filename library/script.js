@@ -117,6 +117,8 @@ function createBooksModal(bookmodal, bookid){
     var remove = document.querySelector('.remove')
 
     remove.addEventListener('click', function(){
+        console.log(this)
+        e.preventDefault()
         removeBook(item)
     })
     
