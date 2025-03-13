@@ -253,16 +253,22 @@ function displayForm (){
 }
 
 function toggleReadStatus(shownbook){
-    var readstatus = document.querySelector('.read')
+    var book = shownbook.parentElement.querySelector('.title').innerHTML
 
-    readstatus.addEventListener('click', function(){
-        var rack = readstatus.parentNode.parentNode.parentNode.classList.contains('publicrack')?'publicLibrary':'personalLibrary'
+    if(publicLibrary.some(e => e.title == book)){
+        var rack = publicLibrary
+        var people = 'public'
+    }
+    else{
+        var rack = personalLibrary
+        var people = 'personal'
+    }
 
-        rack.map((item) => {
-            if (item.id == shownbook.id){
-                item.read = readstatus
-            }
-        })
+    rack.map((item) => {
+        if (item.id == shownbook.id){
+            item.read = readstatus
+        }
+    })
 
 
 
