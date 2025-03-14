@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var select = document.querySelectorAll('input[name="user-select"]')
 
     select.forEach((item) => {
-        item.addEventListener('click', function(i){
-           if (i.checked){
-               user.selected(i.getAttribute('data-selected'));
-               comp.selected(i.getAttribute('data-selected')=='cross'?'circle':'cross');
+        item.addEventListener('click', function(e){
+           if (e.target.checked){
+               user.selected(e.target.getAttribute('data-selected'));
+               comp.selected(e.target.getAttribute('data-selected')=='cross'?'circle':'cross');
                console.log(user.selected(), comp.selected)
            }
        })
