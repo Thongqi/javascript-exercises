@@ -6,15 +6,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const comp = createUser();
     var select = document.querySelectorAll('input[name="user-select"]')
 
-    select.addEventListener('click', function(){
-        select.forEach((item) => {
-            if (item.checked){
-                user.selected(item.getAttribute('data-selected'));
-                comp.selected(item.getAttribute('data-selected')=='cross'?'circle':'cross');
-                console.log(user.selected(), comp.selected)
-            }
-        })
-    })
+    select.forEach((item) => {
+        item.addEventListener('click', function(i){
+           if (i.checked){
+               user.selected(i.getAttribute('data-selected'));
+               comp.selected(i.getAttribute('data-selected')=='cross'?'circle':'cross');
+               console.log(user.selected(), comp.selected)
+           }
+       })
+   })
     
 })
 
