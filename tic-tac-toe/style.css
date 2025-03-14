@@ -1,0 +1,42 @@
+body{
+    box-sizing: border-box;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 40vw;
+    gap: 1px;
+    background-color: gainsboro;
+}
+
+.container div{
+    background-color: whitesmoke;
+}
+
+.select {
+    height: 50px;
+    width: 100px;
+}
+
+.select input{
+    display: none;
+}
+
+.select ul {
+    display: flex;
+    list-style: none;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    
+}
+
+.select ul li{
+    text-align: center;
+    box-shadow: 4px 4px rgb(158, 158, 158);
+}
+
+.select ul li:hover{
+    box-shadow: 0px 4px rgb(158, 158, 158);
+}
