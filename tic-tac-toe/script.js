@@ -94,17 +94,27 @@ function checkWin(player){
             
         };
     }
+    else if(gridnumbers.length > 4){
+        announceWinner('Tie')
+    }
 
     if (!result && player.name == 'user'){
         // computer's turn
-        compPlay()
+        setTimeout(() => {
+            compPlay()
+        }, 1000); 
     }
 }
 
 function announceWinner(player){
-    player.name=='comp'?alert('You lose ~(>_<。)＼'):alert('You Win ! (≧∇≦)ﾉ');
-    player.addscore();
-
+    if(player == 'Tie'){
+        alert("It's a tie")
+    }
+    else{
+        player.name=='comp'?alert('You lose ~(>_<。)＼'):alert('You Win ! (≧∇≦)ﾉ');
+        player.addscore();
+    }
+    
     // clear class
     var container = document.querySelector('.container');
     var gridlists = Array.from(container.querySelectorAll('div'));
