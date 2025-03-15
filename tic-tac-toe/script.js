@@ -69,13 +69,17 @@ function checkWin(){
     gridnumbers.sort();
     if (gridnumbers.length >= 3){
         
-        let result = winCondition.findIndex(set => {
-            gridnumbers.filter(v1 => set.includes(parseInt(v1)));
-        });
+        let result
+        let checker = (arr, target) => target.every(v => arr.includes(v))
+        for (set in winCondition)  {
+            console.log(set)
+            if (checker(gridnumbers, set)){
+                result = true;
+                alert('You Win!')
+                break;
+            }
 
-        if (result > 0){
-            alert('You Win!')
-        }
+        };
     }
 
 
