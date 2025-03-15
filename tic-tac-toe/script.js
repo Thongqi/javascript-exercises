@@ -68,11 +68,20 @@ function checkWin(){
 
     gridnumbers.sort();
     if (gridnumbers.length >= 3){
-        let result = gridnumbers.filter(v1 => winCondition.includes(v1));
-        console.log(result.length >= 3);
-        if (result.length >= 3){
-            alert ('You Win!')
-        }
+        
+        winCondition.filter(set => {
+            gridnumbers.filter(v1 => {
+                let result = set.includes(parseInt(v1));
+                if (result.length >= 3){
+                    alert ('You Win!');
+                    break;
+                }
+                return return.length >= 3;
+            });
+            if (result){
+                break;
+            }
+        });
     }
 
 
