@@ -24,15 +24,16 @@ function userclick(e){
     }
 
     // check if win
-    checkWin()
+    checkWin(user)
+
+    // computer's turn
+    compPlay()
 }
 
 const createUser = function(){
     let score = 0;
 
-    const selected = () => {
-        return selected;
-    }
+    const selected = 'cross' //default
 
     const addscore = () => {
         return score++;
@@ -57,10 +58,10 @@ function storeSelect(select){
 }
 
 //check if a line
-function checkWin(){
+function checkWin(player){
     const container = document.querySelector('.container');
 
-    let grids = container.querySelectorAll(`.${user.selected}`);
+    let grids = container.querySelectorAll(`.${player.selected}`);
     let gridnumbers = [];
     Array.from(grids).map(item => gridnumbers.push(item.id));
 
@@ -75,16 +76,28 @@ function checkWin(){
             console.log(set)
             if (checker(gridnumbers, set)){
                 result = true;
-                alert('You Win!')
+                player==comp?Alert('You lose ~(>_<。)＼'):Alert('You Win ! (≧∇≦)ﾉ')
                 break;
             }
 
         };
     }
-
-
 }
 
+
+
+function compPlay(){
+    var container = document.querySelector('.container')
+    var availablegrid = Array.from(container.querySelectorAll('div'));
+
+    availablegrid = availablegrid.filter(item => !item.classList.contains(`.${user.selected}`));
+
+    var index = Math.floor(Math.random() * availablegrid.length);
+
+    document.querySelector(`#cont-${index}`).innerHTML = comp.selected;
+
+    checkWin(comp)
+}
 
 
 // difference between location of grid is 1 (with condition the lowest number shall be {1,4,7})/3/4, when 3 x 3

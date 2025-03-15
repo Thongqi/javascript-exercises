@@ -2,6 +2,7 @@ body{
     box-sizing: border-box;
     display: flex;
     margin: auto;
+    justify-content: center;
 }
 
 .container{
@@ -50,9 +51,9 @@ body{
 .select ul li{
     width: 100%;
     text-align: center;
-    box-shadow: 4px 4px rgb(158, 158, 158);
+
 }
 
 .select ul li:hover{
-    box-shadow: 0px 4px rgb(158, 158, 158);
+    background-color: gold;
 }
