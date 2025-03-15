@@ -10,48 +10,54 @@
 </head>
 <body>
     <h1>TIC-TAC-TOE</h1>
-    <div class="computer">
-        <h2>Computer</h2>
-        <div class="select">
-            <ul>
-                <li>
-                    <input type="radio" name="comp-select" id="comp-cross" data-select="cross">
-                    <label for="comp-cross">x</label>
-                </li>
-                <li>
-                    <input type="radio" name="comp-select" id="comp-circle" data-select="circle" checked>
-                    <label for="comp-circle">o</label>
-                </li>
-            </ul>
+
+    <div class="body">
+
+        <div class="computer">
+            <h2>Computer</h2>
+            <div class="select">
+                <ul>
+                    <li>
+                        <input type="radio" name="comp-select" id="comp-cross" data-select="cross">
+                        <label for="comp-cross">x</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="comp-select" id="comp-circle" data-select="circle" checked>
+                        <label for="comp-circle">o</label>
+                    </li>
+                </ul>
+            </div>
+            <p id="comp-score"></p>
         </div>
-        <p id="comp-score"></p>
-    </div>
-    <div class="container">
-        <div onclick="userclick(this);" id="cont-1"></div>
-        <div onclick="userclick(this);" id="cont-2"></div>
-        <div onclick="userclick(this);" id="cont-3"></div>
-        <div onclick="userclick(this);" id="cont-4"></div>
-        <div onclick="userclick(this);" id="cont-5"></div>
-        <div onclick="userclick(this);" id="cont-6"></div>
-        <div onclick="userclick(this);" id="cont-7"></div>
-        <div onclick="userclick(this);" id="cont-8"></div>
-        <div onclick="userclick(this);" id="cont-9"></div>
-    </div>
-    <div class="user">
-        <h2>User</h2>
-        <div class="select">
-            <ul>
-                <li>
-                    <input type="radio" name="user-select" id="user-cross" data-selected="cross" checked>
-                    <label for="user-cross">x</label>
-                </li>
-                <li>
-                    <input type="radio" name="user-select" id="user-circle" data-selected="circle">
-                    <label for="user-circle">o</label>
-                </li>
-            </ul>
+        <div class="container">
+            <div onclick="userclick(this);" id="cont-1"></div>
+            <div onclick="userclick(this);" id="cont-2"></div>
+            <div onclick="userclick(this);" id="cont-3"></div>
+            <div onclick="userclick(this);" id="cont-4"></div>
+            <div onclick="userclick(this);" id="cont-5"></div>
+            <div onclick="userclick(this);" id="cont-6"></div>
+            <div onclick="userclick(this);" id="cont-7"></div>
+            <div onclick="userclick(this);" id="cont-8"></div>
+            <div onclick="userclick(this);" id="cont-9"></div>
         </div>
-        <p id="user-score"></p>
+        <div class="user">
+            <h2>User</h2>
+            <div class="select">
+                <ul>
+                    <li>
+                        <input type="radio" name="user-select" id="user-cross" data-selected="cross" checked>
+                        <label for="user-cross">x</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="user-select" id="user-circle" data-selected="circle">
+                        <label for="user-circle">o</label>
+                    </li>
+                </ul>
+            </div>
+            <p id="user-score"></p>
+        </div>
+
     </div>
+    
 </body>
 </html>

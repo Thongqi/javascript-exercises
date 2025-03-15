@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     storeSelect(select);
     
-
+    displayScore();
 })
 
 function displayScore(){
@@ -117,6 +117,8 @@ function announceWinner(player){
     var gridlists = Array.from(container.querySelectorAll('div'));
 
     gridlists.map(grid => grid.classList.remove('cross', 'circle'));
+
+    displayScore();
 }
 
 

@@ -1,6 +1,6 @@
 body{
     box-sizing: border-box;
-    display: flex;
+
     margin: auto;
     justify-content: center;
     padding-top: 2vw;
@@ -10,6 +10,9 @@ body{
     color: white;
 }
 
+.body {
+    display: flex;
+}
 .container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -22,14 +25,20 @@ body{
 
 .container div{
     background-color: #010720;
+    background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
 }
 
 .container .cross{
     background-image: url(cross.png);
+    
+
 }
 
 .container .circle{
     background-image: url(circle.png);
+
 }
 
 .comp p, .user p {
