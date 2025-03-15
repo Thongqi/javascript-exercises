@@ -132,7 +132,7 @@ function compPlay(){
 
     var index = Math.floor(Math.random() * availablegrid.length);
 
-    index = availablegrid[index].id.slice(5) + 1
+    index = parseInt(availablegrid[index].id.slice(5)) + 1
 
     // document.querySelector(`#cont-${index}`).innerHTML = comp.selected=='circle'?'o':'x';
     document.querySelector(`#cont-${index}`).classList.add(comp.selected);
