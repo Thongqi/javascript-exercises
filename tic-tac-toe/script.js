@@ -24,14 +24,20 @@ function userclick(e){
     }
 
     // check if win
-    checkWin(user)
+    var result = checkWin(user)
 
-    // computer's turn
-    compPlay()
+    // if playyer dindt win, comp' turn
+    if (!result){
+        // computer's turn
+        compPlay()
+    }
+    
 }
 
-const createUser = function(){
+const createUser = function(name){
     let score = 0;
+
+    const name = name;
 
     const selected = 'cross' //default
 
@@ -39,11 +45,11 @@ const createUser = function(){
         return score++;
     }
 
-    return ({selected, addscore})
+    return ({selected, addscore, name})
 }
-const user = createUser();
+const user = createUser('user');
 
-const comp = createUser();
+const comp = createUser('comp');
 
 function storeSelect(select){
     select.forEach((item) => {
@@ -68,20 +74,27 @@ function checkWin(player){
     gridnumbers = gridnumbers.map(item => parseInt(item.slice(5)));
 
     gridnumbers.sort();
+    let result;
     if (gridnumbers.length >= 3){
-        
-        let result
         let checker = (arr, target) => target.every(v => arr.includes(v))
         for (set of winCondition)  {
             console.log(set)
             if (checker(gridnumbers, set)){
                 result = true;
-                player==comp?alert('You lose ~(>_<。)＼'):alert('You Win ! (≧∇≦)ﾉ')
+                announceWinner(player);
                 break;
             }
-
+            else{
+                result = false;
+            }
+            return result;
         };
     }
+    return result;
+}
+
+function announceWinner(player){
+    player.name=='comp'?alert('You lose ~(>_<。)＼'):alert('You Win ! (≧∇≦)ﾉ');
 }
 
 
