@@ -64,14 +64,14 @@ function checkWin(){
     let gridnumbers = [];
     Array.from(grids).map(item => gridnumbers.push(item.id));
 
-    console.log(gridnumbers.map(item => item.slice(5)));
+    gridnumbers = gridnumbers.map(item => parseInt(item.slice(5)));
 
     gridnumbers.sort();
     if (gridnumbers.length >= 3){
         
         let result
         let checker = (arr, target) => target.every(v => arr.includes(v))
-        for (set in winCondition)  {
+        for (set of winCondition)  {
             console.log(set)
             if (checker(gridnumbers, set)){
                 result = true;
