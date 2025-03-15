@@ -130,7 +130,9 @@ function compPlay(){
 
     availablegrid = availablegrid.filter(item => item.classList.length == '0');
 
-    var index = Math.floor(Math.random() * availablegrid.length) + 1;
+    var index = Math.floor(Math.random() * availablegrid.length);
+
+    index = availablegrid[index].id.slice(5) + 1
 
     // document.querySelector(`#cont-${index}`).innerHTML = comp.selected=='circle'?'o':'x';
     document.querySelector(`#cont-${index}`).classList.add(comp.selected);

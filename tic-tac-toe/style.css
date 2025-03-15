@@ -43,7 +43,7 @@ body{
 
 }
 
-.comp p, .user p {
+.computer p, .user p {
     font-size: 1.5rem;
     font-weight: bold;
 }
