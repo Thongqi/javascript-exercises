@@ -71,10 +71,11 @@ function storeSelect(select){
                comp.selected = e.target.getAttribute('data-selected')=='cross'?'circle':'cross';
                console.log({select: user.selected, comp: comp.selected});
            }
+           document.querySelector(`#comp-${comp.selected}`).checked = true;
        })
    })
 
-   document.querySelector(`#comp-${comp.selected}`).checked = true;
+   
 }
 
 //check if a line
