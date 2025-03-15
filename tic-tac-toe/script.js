@@ -34,12 +34,13 @@ function userclick(e){
     
 }
 
-const createUser = function(pname){
+const createUser = function(pname, selected){
     let score = 0;
 
     this.name = pname;
 
-    const selected = 'cross' //default
+    this.selected = selected;
+ 
 
     const addscore = () => {
         return score++;
@@ -47,9 +48,9 @@ const createUser = function(pname){
 
     return ({selected, addscore, name})
 }
-const user = createUser('user');
+const user = createUser('user', 'cross');
 
-const comp = createUser('comp');
+const comp = createUser('comp', 'circle');
 
 function storeSelect(select){
     select.forEach((item) => {
@@ -82,12 +83,11 @@ function checkWin(player){
             if (checker(gridnumbers, set)){
                 result = true;
                 announceWinner(player);
-                return result;
                 break;
             }
             else{
                 result = false;
-                return result;
+
             }
             
         };
@@ -105,11 +105,11 @@ function compPlay(){
     var container = document.querySelector('.container')
     var availablegrid = Array.from(container.querySelectorAll('div'));
 
-    availablegrid = availablegrid.filter(item => !item.classList.contains(`.${user.selected}`));
+    availablegrid = availablegrid.filter(item => !item.classList.contains(user.selected));
 
-    var index = Math.floor(Math.random() * availablegrid.length);
+    var index = Math.floor(Math.random() * availablegrid.length) + 1;
 
-    document.querySelector(`#cont-${index}`).innerHTML = comp.selected;
+    document.querySelector(`#cont-${index}`).innerHTML = comp.selected=='circle'?'o':'x';
 
     checkWin(comp)
 }
