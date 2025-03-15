@@ -34,10 +34,10 @@ function userclick(e){
     
 }
 
-const createUser = function(name){
+const createUser = function(pname){
     let score = 0;
 
-    const name = name;
+    this.name = pname;
 
     const selected = 'cross' //default
 
