@@ -69,16 +69,10 @@ function checkWin(){
     gridnumbers.sort();
     if (gridnumbers.length >= 3){
         
-        winCondition.filter(set => {
-            gridnumbers.filter(v1 => {
-                let result = set.includes(parseInt(v1));
-                if (result.length >= 3){
-                    alert ('You Win!');
-                    break;
-                }
-                return return.length >= 3;
-            });
-            if (result){
+        winCondition.forEach(set => {
+            let result = gridnumbers.filter(v1 => set.includes(parseInt(v1)));
+            if (result.length >= 3){
+                alert ('You Win!');
                 break;
             }
         });
