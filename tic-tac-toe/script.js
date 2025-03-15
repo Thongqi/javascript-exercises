@@ -16,8 +16,8 @@ function displayScore(){
     var userscore = document.querySelector('#user-score')
     var compscore = document.querySelector('#comp-score')
 
-    userscore.innerHTML = user.getScore;
-    compscore.innerHTML = comp.getScore;
+    userscore.innerHTML = user.getScore();
+    compscore.innerHTML = comp.getScore();
 }
 
 function userclick(e){
