@@ -82,12 +82,14 @@ function checkWin(player){
             if (checker(gridnumbers, set)){
                 result = true;
                 announceWinner(player);
+                return result;
                 break;
             }
             else{
                 result = false;
+                return result;
             }
-            return result;
+            
         };
     }
     return result;
