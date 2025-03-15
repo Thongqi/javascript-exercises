@@ -76,7 +76,7 @@ function checkWin(player){
             console.log(set)
             if (checker(gridnumbers, set)){
                 result = true;
-                player==comp?Alert('You lose ~(>_<。)＼'):Alert('You Win ! (≧∇≦)ﾉ')
+                player==comp?alert('You lose ~(>_<。)＼'):alert('You Win ! (≧∇≦)ﾉ')
                 break;
             }
 
