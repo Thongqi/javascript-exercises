@@ -18,6 +18,10 @@ body{
     background-color: rgba(164, 164, 164, 0.641);
 }
 
+.container .cross{
+    content: 'x';
+}
+
 .select {
     height: 50px;
     width: 100px;
