@@ -31,7 +31,7 @@ function userclick(e){
     }
 
     // check if win
-    var result = checkWin(user)
+    checkWin(user)
 }
 
 const createUser = function(pname, selected){
@@ -91,14 +91,9 @@ function checkWin(player){
                 announceWinner(player);
                 break;
             }
-            else{
-                result = false;
-
-            }
             
         };
     }
-    return result;
 
     if (!result && player.name == 'user'){
         // computer's turn
