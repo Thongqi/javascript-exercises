@@ -94,7 +94,7 @@ function checkWin(player){
             
         };
     }
-    else if(gridnumbers.length > 4){
+    if(gridnumbers.length > 4 && !result){
         announceWinner('Tie')
     }
 

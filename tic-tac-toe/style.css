@@ -68,7 +68,16 @@ body{
 .select input:checked + label{
     background-color: white;
     color: black;
+    
 } 
+
+.select input:checked + label:last-child{
+    border-radius: 5px 0 0 5px;
+}
+
+.select input:checked + label:last-child{
+    border-radius: 0 5px 5px 0;
+}
 .select ul {
     display: flex;
     list-style: none;
