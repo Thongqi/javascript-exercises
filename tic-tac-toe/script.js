@@ -9,23 +9,16 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log ({user, comp})
     var select = document.querySelectorAll('input[name="user-select"]')
 
-    select.forEach((item) => {
-        item.addEventListener('click', function(e){
-           if (e.target.checked){
-                console.log(e.target)
-               user.selected(e.target.getAttribute('data-selected'));
-               comp.selected(e.target.getAttribute('data-selected')=='cross'?'circle':'cross');
-               console.log(user.selected, comp.selected)
-           }
-       })
-   })
+    storeSelect(select)
     
+
 })
 
 const createUser = function(){
     let score = 0;
 
     const selected = (selected) => {
+        selected
         return selected;
     }
 
@@ -34,6 +27,18 @@ const createUser = function(){
     }
 
     return ({selected, addscore})
+}
+
+function storeSelect(select){
+    select.forEach((item) => {
+        item.addEventListener('click', function(e){
+           if (e.target.checked){
+               user.selected(e.target.getAttribute('data-selected'));
+               comp.selected(e.target.getAttribute('data-selected')=='cross'?'circle':'cross');
+               console.log({user.selected(), comp.selected})
+           }
+       })
+   })
 }
 
 //check if a line
@@ -46,7 +51,8 @@ function checkWin(){
 function click(e){
     //check if the grid is empty
     if(e.target.innerHTML == ''){
-
+        console.log(user.selected())
+        e.target.innerHTML == user.selected()=='cross'?'x':'o'
     }
 }
 
