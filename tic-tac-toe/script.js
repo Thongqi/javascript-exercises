@@ -60,8 +60,8 @@ function storeSelect(select){
 function checkWin(){
     const container = document.querySelector('.container');
 
-    let grids = container.querySelectorAll(`.${user.selected}]`);
-    let gridnumbers;
+    let grids = container.querySelectorAll(`.${user.selected}`);
+    let gridnumbers = [];
     grids.map(item => gridnumbers.append(item.className));
 
     console.log(gridnumbers.map(item => item.slice(5)));
