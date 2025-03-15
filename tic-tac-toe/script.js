@@ -35,7 +35,7 @@ function storeSelect(select){
            if (e.target.checked){
                user.selected(e.target.getAttribute('data-selected'));
                comp.selected(e.target.getAttribute('data-selected')=='cross'?'circle':'cross');
-               console.log({user.selected(), comp.selected})
+               console.log({select: user.selected(), comp: comp.selected})
            }
        })
    })
