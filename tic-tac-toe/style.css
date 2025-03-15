@@ -2,9 +2,9 @@ body{
     box-sizing: border-box;
 
     margin: auto;
-    justify-content: center;
+
     padding-top: 2vw;
-    gap: 2vw;
+ 
     text-align: center;
     background-color: #010720;
     color: white;
@@ -12,6 +12,8 @@ body{
 
 .body {
     display: flex;
+    justify-content: center;
+    gap: 2vw;
 }
 .container{
     display: grid;

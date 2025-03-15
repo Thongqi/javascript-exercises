@@ -50,7 +50,7 @@ const createUser = function(pname, selected){
     this.selected = selected;
     
     const getScore = () => {
-        score;
+        return score;
     }
 
     const addscore = () => {
@@ -128,7 +128,7 @@ function compPlay(){
     var container = document.querySelector('.container')
     var availablegrid = Array.from(container.querySelectorAll('div'));
 
-    availablegrid = availablegrid.filter(item => !item.classList.contains(user.selected));
+    availablegrid = availablegrid.filter(item => item.classList.length == '0');
 
     var index = Math.floor(Math.random() * availablegrid.length) + 1;
 
