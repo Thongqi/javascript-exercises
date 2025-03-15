@@ -12,12 +12,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 })
 
+function userclick(e){
+    //check if the grid is empty
+    console.log(e.target)
+    if(e.target.innerHTML == ''){
+        console.log(user.selected())
+        e.target.innerHTML == user.selected()=='cross'?'x':'o'
+    }
+}
+
 const createUser = function(){
     let score = 0;
 
-    const selected = (selected) => {
-        selected
-        return selected;
+    const selected = (select) => {
+        select
+        return select;
     }
 
     const addscore = () => {
@@ -46,13 +55,7 @@ function checkWin(){
 
 }
 
-function click(e){
-    //check if the grid is empty
-    if(e.target.innerHTML == ''){
-        console.log(user.selected())
-        e.target.innerHTML == user.selected()=='cross'?'x':'o'
-    }
-}
+
 
 // difference between location of grid is 1 (with condition the lowest number shall be {1,4,7})/3/4, when 3 x 3
 const winCondition = [1, 3, 4]
