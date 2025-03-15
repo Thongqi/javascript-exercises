@@ -12,6 +12,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 })
 
+function displayScore(){
+    var userscore = document.querySelector('#user-score')
+    var compscore = document.querySelector('#comp-score')
+
+    userscore.innerHTML = user.getScore;
+    compscore.innerHTML = comp.getScore;
+}
+
 function userclick(e){
     //check if the grid is empty
     console.log(e);
@@ -19,7 +27,7 @@ function userclick(e){
     // change dom
     if(e.innerHTML == ''){
         console.log(user.selected);
-        e.innerHTML = (user.selected=='cross')?'x':'o';
+        // e.innerHTML = (user.selected=='cross')?'x':'o';
         e.classList.add(user.selected);
     }
 
@@ -40,13 +48,16 @@ const createUser = function(pname, selected){
     this.name = pname;
 
     this.selected = selected;
- 
+    
+    const getScore = () => {
+        score;
+    }
 
     const addscore = () => {
         return score++;
     }
 
-    return ({selected, addscore, name})
+    return ({selected, addscore, name, getScore})
 }
 const user = createUser('user', 'cross');
 
@@ -62,6 +73,8 @@ function storeSelect(select){
            }
        })
    })
+
+   document.querySelector(`#comp-${comp.selected}`).checked = true;
 }
 
 //check if a line
@@ -97,7 +110,15 @@ function checkWin(player){
 
 function announceWinner(player){
     player.name=='comp'?alert('You lose ~(>_<。)＼'):alert('You Win ! (≧∇≦)ﾉ');
+    player.addscore();
+
+    // clear class
+    var container = document.querySelector('.container');
+    var gridlists = Array.from(container.querySelectorAll('div'));
+
+    gridlists.map(grid => grid.classList.remove('cross', 'circle'));
 }
+
 
 
 
@@ -109,7 +130,8 @@ function compPlay(){
 
     var index = Math.floor(Math.random() * availablegrid.length) + 1;
 
-    document.querySelector(`#cont-${index}`).innerHTML = comp.selected=='circle'?'o':'x';
+    // document.querySelector(`#cont-${index}`).innerHTML = comp.selected=='circle'?'o':'x';
+    document.querySelector(`#cont-${index}`).classList.add(comp.selected);
 
     checkWin(comp)
 }
