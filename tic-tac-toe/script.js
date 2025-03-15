@@ -25,21 +25,13 @@ function userclick(e){
     console.log(e);
 
     // change dom
-    if(e.innerHTML == ''){
+    if(e.classList.length == '0'){
         console.log(user.selected);
-        // e.innerHTML = (user.selected=='cross')?'x':'o';
         e.classList.add(user.selected);
     }
 
     // check if win
     var result = checkWin(user)
-
-    // if playyer dindt win, comp' turn
-    if (!result){
-        // computer's turn
-        compPlay()
-    }
-    
 }
 
 const createUser = function(pname, selected){
@@ -107,6 +99,11 @@ function checkWin(player){
         };
     }
     return result;
+
+    if (!result && player.name == 'user'){
+        // computer's turn
+        compPlay()
+    }
 }
 
 function announceWinner(player){
@@ -133,7 +130,7 @@ function compPlay(){
 
     var index = Math.floor(Math.random() * availablegrid.length);
 
-    index = parseInt(availablegrid[index].id.slice(5)) + 1
+    index = availablegrid[index].id.slice(5)
 
     // document.querySelector(`#cont-${index}`).innerHTML = comp.selected=='circle'?'o':'x';
     document.querySelector(`#cont-${index}`).classList.add(comp.selected);
