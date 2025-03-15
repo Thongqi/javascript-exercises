@@ -39,7 +39,7 @@ const user = createUser();
 
 const comp = createUser();
 
-function storeSelect(select, user, comp){
+function storeSelect(select){
     select.forEach((item) => {
         item.addEventListener('click', function(e){
            if (e.target.checked){
