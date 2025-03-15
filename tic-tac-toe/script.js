@@ -17,7 +17,7 @@ function userclick(e){
     console.log(e)
     if(e.innerHTML == ''){
         console.log(user.selected)
-        e.innerHTML == user.selected=='cross'?'x':'o'
+        e.innerHTML = (user.selected=='cross')?'x':'o'
     }
 }
 
