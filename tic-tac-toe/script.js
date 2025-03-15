@@ -1,7 +1,5 @@
 //create user
-const user = createUser();
 
-const comp = createUser();
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -37,6 +35,9 @@ const createUser = function(){
 
     return ({selected, addscore})
 }
+const user = createUser();
+
+const comp = createUser();
 
 function storeSelect(select, user, comp){
     select.forEach((item) => {
