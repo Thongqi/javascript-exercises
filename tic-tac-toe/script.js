@@ -17,16 +17,15 @@ function userclick(e){
     console.log(e)
     if(e.innerHTML == ''){
         console.log(user.selected())
-        e.target.innerHTML == user.selected()=='cross'?'x':'o'
+        e.innerHTML == user.selected()=='cross'?'x':'o'
     }
 }
 
 const createUser = function(){
     let score = 0;
 
-    const selected = (select) => {
-        select
-        return select;
+    const selected = () => {
+        return selected;
     }
 
     const addscore = () => {
@@ -43,8 +42,8 @@ function storeSelect(select){
     select.forEach((item) => {
         item.addEventListener('click', function(e){
            if (e.target.checked){
-               user.selected(e.target.getAttribute('data-selected'));
-               comp.selected(e.target.getAttribute('data-selected')=='cross'?'circle':'cross');
+               user.selected = e.target.getAttribute('data-selected');
+               comp.selected = e.target.getAttribute('data-selected')=='cross'?'circle':'cross';
                console.log({select: user.selected(), comp: comp.selected})
            }
        })
