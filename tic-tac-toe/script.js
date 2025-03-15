@@ -1,15 +1,13 @@
 //create user
 document.addEventListener('DOMContentLoaded', function() {
 
-    
-
     const user = createUser();
 
     const comp = createUser();
     console.log ({user, comp})
     var select = document.querySelectorAll('input[name="user-select"]')
 
-    storeSelect(select)
+    storeSelect(select, user, comp)
     
 
 })
@@ -29,7 +27,7 @@ const createUser = function(){
     return ({selected, addscore})
 }
 
-function storeSelect(select){
+function storeSelect(select, user, comp){
     select.forEach((item) => {
         item.addEventListener('click', function(e){
            if (e.target.checked){
