@@ -16,8 +16,8 @@ function userclick(e){
     //check if the grid is empty
     console.log(e)
     if(e.innerHTML == ''){
-        console.log(user.selected())
-        e.innerHTML == user.selected()=='cross'?'x':'o'
+        console.log(user.selected)
+        e.innerHTML == user.selected=='cross'?'x':'o'
     }
 }
 
@@ -44,7 +44,7 @@ function storeSelect(select){
            if (e.target.checked){
                user.selected = e.target.getAttribute('data-selected');
                comp.selected = e.target.getAttribute('data-selected')=='cross'?'circle':'cross';
-               console.log({select: user.selected(), comp: comp.selected})
+               console.log({select: user.selected, comp: comp.selected})
            }
        })
    })
