@@ -1,21 +1,23 @@
 //create user
+const user = createUser();
+
+const comp = createUser();
+
 document.addEventListener('DOMContentLoaded', function() {
 
-    const user = createUser();
-
-    const comp = createUser();
+    
     console.log ({user, comp})
     var select = document.querySelectorAll('input[name="user-select"]')
 
-    storeSelect(select, user, comp)
+    storeSelect(select)
     
 
 })
 
 function userclick(e){
     //check if the grid is empty
-    console.log(e.target)
-    if(e.target.innerHTML == ''){
+    console.log(e.)
+    if(e.innerHTML == ''){
         console.log(user.selected())
         e.target.innerHTML == user.selected()=='cross'?'x':'o'
     }
