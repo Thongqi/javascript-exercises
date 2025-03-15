@@ -62,7 +62,7 @@ function checkWin(){
 
     let grids = container.querySelectorAll(`.${user.selected}`);
     let gridnumbers = [];
-    grids.map(item => gridnumbers.append(item.className));
+    Array.from(grids).map(item => gridnumbers.push(item.id));
 
     console.log(gridnumbers.map(item => item.slice(5)));
 
