@@ -1,17 +1,7 @@
 //create user
 document.addEventListener('DOMContentLoaded', function() {
 
-    const createUser = function(){
-        let score = 0;
     
-        const selected = (selected) => {
-            return selected;
-        }
-    
-        const addscore = () => {
-            return score++;
-        }
-    }
 
     const user = createUser();
 
@@ -32,7 +22,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
 })
 
+const createUser = function(){
+    let score = 0;
 
+    const selected = (selected) => {
+        return selected;
+    }
+
+    const addscore = () => {
+        return score++;
+    }
+
+    return ({selected, addscore})
+}
 
 //check if a line
 function checkWin(){
