@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function userclick(e){
     //check if the grid is empty
-    console.log(e.)
+    console.log(e)
     if(e.innerHTML == ''){
         console.log(user.selected())
         e.target.innerHTML == user.selected()=='cross'?'x':'o'
