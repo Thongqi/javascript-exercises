@@ -46,16 +46,18 @@ body{
 
 .computer, .user {
     margin: auto 0;
+    width: 10vw;
 }
 .computer p, .user p {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 3rem;
+    font-weight: 600;
     margin: 0;
 }
 
 .select {
     height: 50px;
     width: 100px;
+    margin: auto;
 }
 
 .select label{

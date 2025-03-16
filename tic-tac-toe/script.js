@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     console.log ({user, comp});
+
+
+
     var select = document.querySelectorAll('input[name="user-select"]');
 
     storeSelect(select);
@@ -31,7 +34,13 @@ function userclick(e){
     }
 
     // check if win
-    checkWin(user)
+    checkWin(user);
+}
+
+function disableClick(){
+    var grids = Array.from(document.querySelectorAll('.container div'));
+
+    grids.forEach(item => item.disabled = !item.disabled);
 }
 
 const createUser = function(pname, selected){
@@ -51,6 +60,22 @@ const createUser = function(pname, selected){
 
     return ({selected, addscore, name, getScore})
 }
+
+const playGame = function() {
+    let round = 0;
+
+    const addRound = function(){
+        round++;
+    }
+
+    const getRound = () => {
+        return round;
+    }
+
+    return({addRound, getRound})
+
+}
+
 const user = createUser('user', 'cross');
 
 const comp = createUser('comp', 'circle');
@@ -95,13 +120,15 @@ function checkWin(player){
         };
     }
     if(gridnumbers.length > 4 && !result){
-        announceWinner('Tie')
+        announceWinner('Tie');
     }
 
     if (!result && player.name == 'user'){
+        disableClick();
         // computer's turn
         setTimeout(() => {
-            compPlay()
+            compPlay();
+            disableClick();
         }, 1000); 
     }
 }
@@ -122,12 +149,33 @@ function announceWinner(player){
     gridlists.map(grid => grid.classList.remove('cross', 'circle'));
 
     displayScore();
+
+    play();
 }
 
+function play(){
+    var game = playGame();
 
+    game.addRound();
 
+    // change starting player
+    if (game.getRound() % 2 != 0){
+        disableClick();
+        compPlay();
+        disableClick();
+    }
+}
 
 function compPlay(){
+   
+    let gridnumber = nextMove();
+    // document.querySelector(`#cont-${index}`).innerHTML = comp.selected=='circle'?'o':'x';
+    document.querySelector(`#cont-${gridnumber}`).classList.add(comp.selected);
+
+    checkWin(comp);
+}
+
+function nextMove (){
     var container = document.querySelector('.container')
     var availablegrid = Array.from(container.querySelectorAll('div'));
     var oppgrid = Array.from(container.querySelectorAll(`.${user.selected}`));
@@ -135,29 +183,26 @@ function compPlay(){
     availablegrid = availablegrid.filter(item => item.classList.length == '0');
     availablegrid = availablegrid.map(item => item.id.slice(5));
 
-
     // first move if can, choose from 1,3,7,9
     var evengrid = availablegrid.filter(item => item % 2 != '0');
-    console.log(evengrid)
+
+    var index;
     if(oppgrid.length < 2){
-        var index = Math.floor(Math.random() * evengrid.length);
+        index = Math.floor(Math.random() * evengrid.length);
 
         index = evengrid[index];
     }
     else{
-        var index = blockOpp(availablegrid. oppgrid)
+        index = blockOpp(availablegrid, oppgrid)
 
         if(!index){
-            var index = Math.floor(Math.random() * availablegrid.length);
+            index = Math.floor(Math.random() * availablegrid.length);
 
             index = availablegrid[index];
         }
-       
+        
     }
-    // document.querySelector(`#cont-${index}`).innerHTML = comp.selected=='circle'?'o':'x';
-    document.querySelector(`#cont-${index}`).classList.add(comp.selected);
-
-    checkWin(comp)
+    return index;
 }
 
 function blockOpp(availablegrid, oppgrid){
@@ -167,7 +212,6 @@ function blockOpp(availablegrid, oppgrid){
         let result = set.filter(i => oppgrid.includes(i))
         if(result.length >= 2){
             let value = set.filter(i => !oppgrid.includes(i));
-            console.log(result, value)
             // check if the grid is empty
             if(!availablegrid.includes(value[0])){
                 return value;
