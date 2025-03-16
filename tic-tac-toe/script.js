@@ -139,10 +139,10 @@ function compPlay(){
     // first move if can, choose from 1,3,7,9
     var evengrid = availablegrid.filter(item => item % 2 != '0');
     console.log(evengrid)
-    if(oppgrid.length <= 2){
+    if(oppgrid.length < 2){
         var index = Math.floor(Math.random() * evengrid.length);
 
-        index = availablegrid[index];
+        index = evengrid[index];
     }
     else{
         var index = blockOpp(availablegrid. oppgrid)
