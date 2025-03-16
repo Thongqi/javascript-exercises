@@ -40,7 +40,13 @@ function userclick(e){
 function disableClick(){
     var grids = Array.from(document.querySelectorAll('.container div'));
 
-    grids.forEach(item => item.disabled = !item.disabled);
+    grids.forEach(item => item.onclick = '#');
+}
+
+function enableClick(){
+    var grids = Array.from(document.querySelectorAll('.container div'));
+
+    grids.forEach(item => item.onclick = 'userclick(this);');
 }
 
 const createUser = function(pname, selected){
@@ -128,7 +134,7 @@ function checkWin(player){
         // computer's turn
         setTimeout(() => {
             compPlay();
-            disableClick();
+            // disableClick();
         }, 1000); 
     }
 }
@@ -141,7 +147,7 @@ function announceWinner(player){
         player.name=='comp'?alert('You lose ~(>_<。)＼'):alert('You Win ! (≧∇≦)ﾉ');
         player.addscore();
     }
-    
+
     // clear class
     var container = document.querySelector('.container');
     var gridlists = Array.from(container.querySelectorAll('div'));
@@ -150,7 +156,10 @@ function announceWinner(player){
 
     displayScore();
 
-    play();
+    setTimeout(() => {
+        play();
+    }, 1000);
+
 }
 
 function play(){
@@ -162,7 +171,7 @@ function play(){
     if (game.getRound() % 2 != 0){
         disableClick();
         compPlay();
-        disableClick();
+        // disableClick();
     }
 }
 
