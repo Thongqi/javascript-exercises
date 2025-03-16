@@ -250,7 +250,8 @@ function blockOpp(availablegrid, oppgrid){
 
 function trytoWin(availablegrid){
     var compgrid = Array.from(document.querySelectorAll(`.container .${comp.selected}`));
-
+    ocompgrid = compgrid.map(item => parseInt(item.id.slice(5)));
+    
     for(set of winCondition){
         let result = set.filter(i => compgrid.includes(i));
         if(result.length >= 2){
