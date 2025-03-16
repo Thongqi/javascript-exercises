@@ -235,7 +235,7 @@ function blockOpp(availablegrid, oppgrid){
             if(result.length >= 2){
                 let value = set.filter(i => !oppgrid.includes(i));
                 // check if the grid is empty
-                if(!availablegrid.includes(value[0])){
+                if(availablegrid.includes(value[0])){
                     return value;
                     break;
                 }
