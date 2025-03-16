@@ -33,8 +33,8 @@ const playGame = function() {
 }
 
 
-const user = createUser('user', 'cross');
-const comp = createUser('comp', 'circle');
+const user = createUser('user', 'circle');
+const comp = createUser('comp', 'cross');
 const game = playGame();
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -98,7 +98,7 @@ function storeSelect(select){
         //    change current tictactoe disaply
            var oriuser = Array.from(document.querySelectorAll(`.${user.selected}`))
            var oricomp = Array.from(document.querySelectorAll(`.${comp.selected}`))
-           
+
            oriuser.forEach(item => {
                 item.classList.remove(user.selected)
                 item.classList.add(comp.selected)
