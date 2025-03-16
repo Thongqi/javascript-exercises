@@ -202,7 +202,7 @@ function nextMove (){
     var oppgrid = Array.from(container.querySelectorAll(`.${user.selected}`));
 
     availablegrid = availablegrid.filter(item => item.classList.length == '0');
-    availablegrid = availablegrid.map(item => item.id.slice(5));
+    availablegrid = availablegrid.map(item => parseInt(item.id.slice(5)));
 
     // first move if can, choose from 1,3,7,9
     var evengrid = availablegrid.filter(item => item % 2 != '0');
@@ -236,7 +236,7 @@ function blockOpp(availablegrid, oppgrid){
                 let value = set.filter(i => !oppgrid.includes(i));
                 // check if the grid is empty
                 if(availablegrid.includes(value[0])){
-                    return value;
+                    return value[0];
                     break;
                 }
             }
