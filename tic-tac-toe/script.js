@@ -130,7 +130,7 @@ function announceWinner(player){
 function compPlay(){
     var container = document.querySelector('.container')
     var availablegrid = Array.from(container.querySelectorAll('div'));
-    var oppgrid = Array.from(container.querySelectorAll(`.${user.select}`));
+    var oppgrid = Array.from(container.querySelectorAll(`.${user.selected}`));
 
     availablegrid = availablegrid.filter(item => item.classList.length == '0');
     availablegrid = availablegrid.map(item => item.id.slice(5));
