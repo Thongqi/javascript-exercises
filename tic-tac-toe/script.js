@@ -235,7 +235,7 @@ function getIndex(grids){
 function blockOpp(availablegrid, oppgrid){
     oppgrid = oppgrid.map(item => parseInt(item.id.slice(5)));
 
-    if (!trytoWin()){
+    if (!trytoWin(availablegrid)){
         for(set of winCondition){
             let result = set.filter(i => oppgrid.includes(i));
             if(result.length >= 2){
@@ -249,7 +249,7 @@ function blockOpp(availablegrid, oppgrid){
         }
     }
     else{
-        let value = trytoWin();
+        let value = trytoWin(availablegrid);
     }
     
 }
