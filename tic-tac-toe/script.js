@@ -45,8 +45,7 @@ function disableClick(){
 
 function enableClick(){
     var grids = Array.from(document.querySelectorAll('.container div'));
-
-    grids.forEach(item => item.onclick = 'userclick(this);');
+    grids.forEach(item => item.onclick = function() {userclick(this)});
 }
 
 const createUser = function(pname, selected){
