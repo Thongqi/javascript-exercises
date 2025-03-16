@@ -37,6 +37,8 @@ function userclick(e){
     checkWin(user);
 }
 
+
+
 function disableClick(){
     var grids = Array.from(document.querySelectorAll('.container div'));
 
@@ -226,10 +228,7 @@ function blockOpp(availablegrid, oppgrid){
                 break;
             }
         }
-        return false;
     }
-
-
 }
 
 
