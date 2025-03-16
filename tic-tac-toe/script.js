@@ -1,9 +1,11 @@
 //create user
+const user = createUser('user', 'cross');
 
+const comp = createUser('comp', 'circle');
+const game = playGame();
 
 document.addEventListener('DOMContentLoaded', function() {
-
-    
+   
     console.log ({user, comp});
 
 
@@ -83,10 +85,6 @@ const playGame = function() {
 
 }
 
-const user = createUser('user', 'cross');
-
-const comp = createUser('comp', 'circle');
-const game = playGame();
 
 function storeSelect(select){
     select.forEach((item) => {
@@ -97,6 +95,18 @@ function storeSelect(select){
                console.log({select: user.selected, comp: comp.selected});
            }
            document.querySelector(`#comp-${comp.selected}`).checked = true;
+
+        //    change current tictactoe disaply
+           Array.from(document.querySelectorAll(`.${user.selected}`)).forEach(item => {
+                item.classList.remove(user.selected)
+                item.classList.add(comp.selected)
+           })
+
+           Array.from(document.querySelectorAll(`.${comp.selected}`)).forEach(item => {
+                item.classList.remove(comp.selected)
+                item.classList.add(user.selected)
+            })
+
        })
    })
 
@@ -215,12 +225,34 @@ function nextMove (){
 }
 
 function blockOpp(availablegrid, oppgrid){
-    oppgrid = oppgrid.map(item => item.id.slice(5));
+    oppgrid = oppgrid.map(item => parseInt(item.id.slice(5)));
+
+    if (!trytoWin()){
+        for(set of winCondition){
+            let result = set.filter(i => oppgrid.includes(i));
+            if(result.length >= 2){
+                let value = set.filter(i => !oppgrid.includes(i));
+                // check if the grid is empty
+                if(!availablegrid.includes(value[0])){
+                    return value;
+                    break;
+                }
+            }
+        }
+    }
+    else{
+        let value = trytoWin();
+    }
+    
+}
+
+function trytoWin(availablegrid){
+    var compgrid = Array.from(document.querySelectorAll(`.container .${comp.selected}`));
 
     for(set of winCondition){
-        let result = set.filter(i => oppgrid.includes(i))
+        let result = set.filter(i => compgrid.includes(i));
         if(result.length >= 2){
-            let value = set.filter(i => !oppgrid.includes(i));
+            let value = set.filter(i => !compgrid.includes(i));
             // check if the grid is empty
             if(!availablegrid.includes(value[0])){
                 return value;
@@ -228,8 +260,6 @@ function blockOpp(availablegrid, oppgrid){
             }
         }
     }
-
-
 }
 
 
