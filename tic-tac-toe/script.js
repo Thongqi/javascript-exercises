@@ -1,5 +1,41 @@
 //create user
+const createUser = function(pname, selected){
+    let score = 0;
 
+    this.name = pname;
+
+    this.selected = selected;
+    
+    const getScore = () => {
+        return score;
+    }
+
+    const addscore = () => {
+        return score++;
+    }
+
+    return ({selected, addscore, name, getScore})
+}
+
+const playGame = function() {
+    let round = 0;
+
+    const addRound = function(){
+        round++;
+    }
+
+    const getRound = () => {
+        return round;
+    }
+
+    return({addRound, getRound})
+
+}
+
+
+const user = createUser('user', 'cross');
+const comp = createUser('comp', 'circle');
+const game = playGame();
 
 document.addEventListener('DOMContentLoaded', function() {
    
@@ -12,9 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     displayScore();
 })
 
-const user = createUser('user', 'cross');
-const comp = createUser('comp', 'circle');
-const game = playGame();
+
 
 function displayScore(){
     var userscore = document.querySelector('#user-score')
@@ -49,38 +83,6 @@ function enableClick(){
     grids.forEach(item => item.onclick = function() {userclick(this)});
 }
 
-const createUser = function(pname, selected){
-    let score = 0;
-
-    this.name = pname;
-
-    this.selected = selected;
-    
-    const getScore = () => {
-        return score;
-    }
-
-    const addscore = () => {
-        return score++;
-    }
-
-    return ({selected, addscore, name, getScore})
-}
-
-const playGame = function() {
-    let round = 0;
-
-    const addRound = function(){
-        round++;
-    }
-
-    const getRound = () => {
-        return round;
-    }
-
-    return({addRound, getRound})
-
-}
 
 
 function storeSelect(select){
@@ -153,7 +155,7 @@ function announceWinner(player){
         alert("It's a tie")
     }
     else{
-        player.name=='comp'?alert('You lose ~(>_<。)＼'):alert('You Win ! (≧∇≦)ﾉ');
+        player.name == 'comp'?alert('You lose ~(>_<。)＼'):alert('You Win ! (≧∇≦)ﾉ');
         player.addscore();
     }
 
