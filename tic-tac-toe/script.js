@@ -209,21 +209,27 @@ function nextMove (){
 
     var index;
     if(oppgrid.length < 2){
-        index = Math.floor(Math.random() * evengrid.length);
-
-        index = evengrid[index];
+        index = getIndex(evengrid);
     }
     else{
-        index = blockOpp(availablegrid, oppgrid)
+        index = blockOpp(availablegrid, oppgrid);
 
         if(!index){
-            index = Math.floor(Math.random() * availablegrid.length);
-
-            index = availablegrid[index];
+            if(evengrid.length > 0){
+                index = getIndex(evengrid);
+            }
+            else{
+                index = getIndex(availablegridgrid);
+            }        
         }
         
     }
     return index;
+}
+
+function getIndex(grids){
+    index = Math.floor(Math.random() * grids.length);
+    return grids[index];
 }
 
 function blockOpp(availablegrid, oppgrid){
@@ -258,7 +264,7 @@ function trytoWin(availablegrid){
             let value = set.filter(i => !compgrid.includes(i));
             // check if the grid is empty
             if(availablegrid.includes(value[0])){
-                return value;
+                return value[0];
                 break;
             }
         }
