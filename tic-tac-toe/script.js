@@ -1,14 +1,9 @@
 //create user
-const user = createUser('user', 'cross');
 
-const comp = createUser('comp', 'circle');
-const game = playGame();
 
 document.addEventListener('DOMContentLoaded', function() {
    
     console.log ({user, comp});
-
-
 
     var select = document.querySelectorAll('input[name="user-select"]');
 
@@ -16,6 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     displayScore();
 })
+
+const user = createUser('user', 'cross');
+const comp = createUser('comp', 'circle');
+const game = playGame();
 
 function displayScore(){
     var userscore = document.querySelector('#user-score')
@@ -38,8 +37,6 @@ function userclick(e){
     // check if win
     checkWin(user);
 }
-
-
 
 function disableClick(){
     var grids = Array.from(document.querySelectorAll('.container div'));

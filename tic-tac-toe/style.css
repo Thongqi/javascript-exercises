@@ -61,8 +61,11 @@ body{
 }
 
 .select label{
-    padding: 0 18px;
+    /* padding: 0 18px; */
     cursor: pointer;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
 }
 
 .select input{
@@ -78,7 +81,7 @@ body{
     border-radius: 5px 0 0 5px;
 }
 
-.select input:checked + label:last-child{
+.select input:checked + label:first-child{
     border-radius: 0 5px 5px 0;
 }
 .select ul {
@@ -88,12 +91,6 @@ body{
     border-radius: 5px;
     padding: 0;
     
-}
-
-.select ul label{
-    width: 100%;
-    text-align: center;
-
 }
 
 .select ul label:hover{
