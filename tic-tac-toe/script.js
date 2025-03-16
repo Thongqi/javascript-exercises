@@ -96,12 +96,15 @@ function storeSelect(select){
            document.querySelector(`#comp-${comp.selected}`).checked = true;
 
         //    change current tictactoe disaply
-           Array.from(document.querySelectorAll(`.${user.selected}`)).forEach(item => {
+           var oriuser = Array.from(document.querySelectorAll(`.${user.selected}`))
+           var oricomp = Array.from(document.querySelectorAll(`.${comp.selected}`))
+           
+           oriuser.forEach(item => {
                 item.classList.remove(user.selected)
                 item.classList.add(comp.selected)
            })
 
-           Array.from(document.querySelectorAll(`.${comp.selected}`)).forEach(item => {
+           oricomp.forEach(item => {
                 item.classList.remove(comp.selected)
                 item.classList.add(user.selected)
             })
