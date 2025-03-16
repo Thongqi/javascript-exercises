@@ -249,7 +249,7 @@ function blockOpp(availablegrid, oppgrid){
         }
     }
     else{
-        let value = trytoWin(availablegrid);
+        return trytoWin(availablegrid);
     }
     
 }
