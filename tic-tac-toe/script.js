@@ -86,6 +86,7 @@ const playGame = function() {
 const user = createUser('user', 'cross');
 
 const comp = createUser('comp', 'circle');
+const game = playGame();
 
 function storeSelect(select){
     select.forEach((item) => {
@@ -164,8 +165,6 @@ function announceWinner(player){
 }
 
 function play(){
-    var game = playGame();
-
     game.addRound();
 
     // change starting player
@@ -229,6 +228,8 @@ function blockOpp(availablegrid, oppgrid){
             }
         }
     }
+
+
 }
 
 
