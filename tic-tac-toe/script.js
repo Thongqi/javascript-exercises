@@ -134,7 +134,7 @@ function checkWin(player){
         // computer's turn
         setTimeout(() => {
             compPlay();
-            // disableClick();
+            enableClick();
         }, 1000); 
     }
 }
@@ -171,7 +171,7 @@ function play(){
     if (game.getRound() % 2 != 0){
         disableClick();
         compPlay();
-        // disableClick();
+        enableClick();
     }
 }
 
