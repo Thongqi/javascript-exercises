@@ -59,17 +59,16 @@ function displayScore(){
 }
 
 function userclick(e){
-    //check if the grid is empty
+    
     console.log(e);
 
-    // change dom
+    //check if the grid is empty
     if(e.classList.length == '0'){
         console.log(user.selected);
         e.classList.add(user.selected);
+        checkWin(user);
     }
-
-    // check if win
-    checkWin(user);
+    
 }
 
 function disableClick(){
