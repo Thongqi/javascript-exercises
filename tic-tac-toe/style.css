@@ -15,6 +15,7 @@ h2 span{
     font-size: 0.8rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: inline-block;
+    font-weight: 300;
 }
 
 .body {
@@ -27,6 +28,7 @@ h2 span{
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     width: 20vw;
+    min-width: 250px;
     aspect-ratio: 1/1;
     gap: 2px;
     background-color: rgb(245, 245, 245);
@@ -37,12 +39,11 @@ h2 span{
     background-repeat: no-repeat;
   background-size: 80%;
   background-position: center;
+  aspect-ratio: 1/1;
 }
 
 .container .cross{
     background-image: url(cross.png);
-    
-
 }
 
 .container .circle{

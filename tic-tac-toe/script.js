@@ -141,6 +141,7 @@ function checkWin(player){
     }
     if(gridnumbers.length > 4 && !result){
         announceWinner('Tie');
+        result = true;
     }
 
     if (!result && player.name == 'user'){
@@ -219,7 +220,7 @@ function nextMove (){
                 index = getIndex(evengrid);
             }
             else{
-                index = getIndex(availablegridgrid);
+                index = getIndex(availablegrid);
             }        
         }
         
