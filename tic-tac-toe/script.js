@@ -132,7 +132,10 @@ function checkWin(player){
             console.log(set)
             if (checker(gridnumbers, set)){
                 result = true;
-                announceWinner(player);
+                setTimeout(() => {
+                    announceWinner(player);
+                }, 500);
+                
                 break;
             }
             
