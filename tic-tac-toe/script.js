@@ -142,7 +142,9 @@ function checkWin(player){
         };
     }
     if(gridnumbers.length > 4 && !result){
-        announceWinner('Tie');
+        setTimeout(() => {
+            announceWinner('Tie');
+        }, 500); 
         result = true;
     }
 
