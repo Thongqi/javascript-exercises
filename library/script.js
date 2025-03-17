@@ -33,26 +33,7 @@ document.addEventListener('DOMContentLoaded', function(){
     
 })
 
-new PublicBook(
-    '嫌われる勇気',
-    '岸見 一郎',
-    '296',
-    true,
-)
 
-new PublicBook(
-    'A Man Called Ove',
-    'Fredrik Backman',
-    '337',
-    true,
-)
-
-new PublicBook(
-    'Between Two Kingdoms: A Memoir of a Life Interrupted',
-    'Suleika Jaouad ',
-    '368',
-    true,
-)
 
 class Book{
     constructor(title, author, pages, read){
@@ -86,6 +67,27 @@ class PublicBook extends Book{
         publicLibrary.push(`${this.title, this.author, this.pages, this.read}`)
     }
 }
+
+new PublicBook(
+    '嫌われる勇気',
+    '岸見 一郎',
+    '296',
+    true,
+)
+
+new PublicBook(
+    'A Man Called Ove',
+    'Fredrik Backman',
+    '337',
+    true,
+)
+
+new PublicBook(
+    'Between Two Kingdoms: A Memoir of a Life Interrupted',
+    'Suleika Jaouad ',
+    '368',
+    true,
+)
 
 // function addBooktoPublicLibrary(title, author, pages, read){
 //     var book = new Book (title, author, pages, read)
