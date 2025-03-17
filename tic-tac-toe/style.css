@@ -28,7 +28,6 @@ h2 span{
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     width: 20vw;
-    min-width: 250px;
     aspect-ratio: 1/1;
     gap: 2px;
     background-color: rgb(245, 245, 245);
@@ -54,6 +53,7 @@ h2 span{
 .computer, .user {
     margin: auto 0;
     width: 10vw;
+    min-width: 135px;
 }
 .computer p, .user p {
     font-size: 3rem;

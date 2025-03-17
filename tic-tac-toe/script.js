@@ -144,6 +144,7 @@ function checkWin(player){
         result = true;
     }
 
+    // if havent endgame, continue
     if (!result && player.name == 'user'){
         disableClick();
         // computer's turn
