@@ -45,44 +45,69 @@ document.addEventListener('DOMContentLoaded', function(){
     
 })
 
-addBooktoPublicLibrary(
+new PublicBook(
     '嫌われる勇気',
     '岸見 一郎',
     '296',
     true,
 )
 
-addBooktoPublicLibrary(
+new PublicBook(
     'A Man Called Ove',
     'Fredrik Backman',
     '337',
     true,
 )
 
-addBooktoPublicLibrary(
+new PublicBook(
     'Between Two Kingdoms: A Memoir of a Life Interrupted',
     'Suleika Jaouad ',
     '368',
     true,
 )
 
-function Book(title, author, pages, read){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.id = crypto.randomUUID();
+class Book{
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.id = crypto.randomUUID();
+    }
+   
 }
 
-function addBooktoPublicLibrary(title, author, pages, read){
-    var book = new Book (title, author, pages, read)
-    publicLibrary.push(book)
+class PersonalBook extends Book{
+    constructor(title, author, pages, read, library){
+        super(title, author, pages, read);
+        this.library = 'personal';
+    }
+
+    addBooktoPersonalLibrary(){
+        personalLibrary.push(`${this.title, this.author, this.pages, this.read}`)
+    }
 }
 
-function addBooktoPersonalLibrary(title, author, pages, read){
-    var book = new Book (title, author, pages, read)
-    personalLibrary.push(book)
+class PublicBook extends Book{
+    constructor(title, author, pages, read, library){
+        super(title, author, pages, read);
+        this.library = 'public';
+    }
+
+    addBooktoPublicLibrary(){
+        publicLibrary.push(`${this.title, this.author, this.pages, this.read}`)
+    }
 }
+
+// function addBooktoPublicLibrary(title, author, pages, read){
+//     var book = new Book (title, author, pages, read)
+//     publicLibrary.push(book)
+// }
+
+// function addBooktoPersonalLibrary(title, author, pages, read){
+//     var book = new Book (title, author, pages, read)
+//     personalLibrary.push(book)
+// }
 
 function displayBook(bookid){
     var bookmodal = document.querySelector('.book-modal')
@@ -237,7 +262,7 @@ function addBook(e){
         var read = document.querySelector('#addread').checked?'True':'False'
         console.log(title, author, pages, read)
 
-        addBooktoPersonalLibrary(title, author, pages, read)
+        new PersonalBook(title, author, pages, read)
 
         createBooks('personal')
 
