@@ -47,57 +47,62 @@ class Book{
 }
 
 class PersonalBook extends Book{
-    constructor(title, author, pages, read, library){
+    constructor(title, author, pages, read){
         super(title, author, pages, read);
         this.library = 'personal';
     }
 
     addBooktoPersonalLibrary(){
-        personalLibrary.push(`${this.title, this.author, this.pages, this.read}`)
+        let book = {
+            title: this.title, 
+            author: this.author, 
+            pages: this.pages, 
+            read: this.read}
+        personalLibrary.push(book)
     }
 }
 
 class PublicBook extends Book{
-    constructor(title, author, pages, read, library){
+    constructor(title, author, pages, read){
         super(title, author, pages, read);
         this.library = 'public';
     }
 
     addBooktoPublicLibrary(){
-        publicLibrary.push(`${this.title, this.author, this.pages, this.read}`)
+        let book = {
+            title: this.title, 
+            author: this.author, 
+            pages: this.pages, 
+            read: this.read}
+        publicLibrary.push(book)
     }
 }
 
-new PublicBook(
+let pb1 = new PublicBook(
     '嫌われる勇気',
     '岸見 一郎',
     '296',
     true,
 )
 
-new PublicBook(
+let pb2 = new PublicBook(
     'A Man Called Ove',
     'Fredrik Backman',
     '337',
     true,
 )
 
-new PublicBook(
+let pb3 = new PublicBook(
     'Between Two Kingdoms: A Memoir of a Life Interrupted',
     'Suleika Jaouad ',
     '368',
     true,
 )
 
-// function addBooktoPublicLibrary(title, author, pages, read){
-//     var book = new Book (title, author, pages, read)
-//     publicLibrary.push(book)
-// }
+pb1.addBooktoPublicLibrary()
+pb2.addBooktoPublicLibrary()
+pb3.addBooktoPublicLibrary()
 
-// function addBooktoPersonalLibrary(title, author, pages, read){
-//     var book = new Book (title, author, pages, read)
-//     personalLibrary.push(book)
-// }
 
 function displayBook(bookid){
     var bookmodal = document.querySelector('.book-modal')
