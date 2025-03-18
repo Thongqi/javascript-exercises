@@ -253,8 +253,9 @@ function addBook(e){
         var read = document.querySelector('#addread').checked?'True':'False'
         console.log(title, author, pages, read)
 
-        new PersonalBook(title, author, pages, read)
-
+        let book = new PersonalBook(title, author, pages, read)
+        book.addBooktoPersonalLibrary()
+        
         createBooks('personal')
 
         document.querySelector('.form-add-book').style.display = 'none' 
