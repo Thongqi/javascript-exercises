@@ -47,33 +47,29 @@ class Book{
 }
 
 class PersonalBook extends Book{
-    constructor(title, author, pages, read){
-        super(title, author, pages, read);
-        this.library = 'personal';
-    }
 
     addBooktoPersonalLibrary(){
         let book = {
             title: this.title, 
             author: this.author, 
             pages: this.pages, 
-            read: this.read}
+            read: this.read,
+            id: this.id,
+        }
         personalLibrary.push(book)
     }
 }
 
 class PublicBook extends Book{
-    constructor(title, author, pages, read){
-        super(title, author, pages, read);
-        this.library = 'public';
-    }
 
     addBooktoPublicLibrary(){
         let book = {
             title: this.title, 
             author: this.author, 
             pages: this.pages, 
-            read: this.read}
+            read: this.read,
+            id: this.id,
+        }
         publicLibrary.push(book)
     }
 }
