@@ -1,0 +1,90 @@
+
+@font-face {
+    font-family: 'Autour';
+    src: url('./AutourOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Lavishly';
+    src: url('./LavishlyYours-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Comic';
+    src: url('./ComicNeue-Light.ttf') format('truetype');
+}
+
+:root{
+    --clrfont: #F3E5D8;
+    --clrbutton: 212, 140, 61;
+    --clrbg: #4B382A;
+    --accent: #A35D2A;
+}
+
+body{
+    color: var(--clrfont);
+    font-family: 'Autour';
+    background:  linear-gradient( rgba(0, 0, 0, 0.7), rgba(96, 96, 96, 0.7) ), url('./bgimg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    height: 100%;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+p{
+    font-family: 'Comic';
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 5px;
+    margin: auto;
+    background-color: rgba(var(--clrbutton), 0.6);
+
+}
+
+nav button, button{
+    font-weight: bold;
+    background: none;
+    color: white;
+    border: none;
+    position: relative;
+    width: fit-content;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transform-origin: top left;
+    transition: transform 0.2s ease;
+}
+
+button:hover::before{
+     transform: scaleX(1);
+}
+
+
+#content h1{
+    font-family: 'Lavishly';
+    font-size: 4.5rem;
+}
+
+#content > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 3rem;
+    padding: 5vw 15vw;
+    align-items: center;
+}
+
