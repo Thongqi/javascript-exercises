@@ -6,13 +6,13 @@
 </head>
 <body>
   <img src="#">
-  <button id="refresh-img"></button>
+  <button id="refresh-img">Refresh</button>
   <input type="text">
-  <button id="search"></button>
+  <button id="search">Search</button>
   <script>
     const img = document.querySelector('img');
     const refreshbtn = document.querySelector('#refresh-img');
-    const input = document.querySelector('input');
+    const input = document.querySelector('input').value;
     const searchbtn = document.querySelector('#search');
 
     refreshbtn.addEventListener('click', fetchimg);
