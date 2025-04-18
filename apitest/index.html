@@ -24,7 +24,7 @@
         if (input.length > 0){
             q = input;
         }
-        
+        console.log(q);
         fetch(`https://api.giphy.com/v1/gifs/translate?api_key=SByTIjRrrZOyB9QBQrE7YXmaSw8eCN1C&s=${q}`, {mode: 'cors'})
       .then(function(response) {
         return response.json();
