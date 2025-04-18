@@ -13,7 +13,7 @@
   <script>
     const img = document.querySelector('img');
     const refreshbtn = document.querySelector('#refresh-img');
-    const input = document.querySelector('input').value;
+    const inp = document.querySelector('input').value;
     const searchbtn = document.querySelector('#search');
 
     refreshbtn.addEventListener('click', fetchimg);
@@ -21,12 +21,13 @@
     fetchimg();
 
     function fetchimg(q='cats'){
-        if (input.length > 0){
-            q = input;
+        if (inp.length > 0){
+            q = inp;
         }
-        console.log(q);
+        
         fetch(`https://api.giphy.com/v1/gifs/translate?api_key=SByTIjRrrZOyB9QBQrE7YXmaSw8eCN1C&s=${q}`, {mode: 'cors'})
       .then(function(response) {
+        console.log(q);
         return response.json();
       })
       .then(function(response) {
