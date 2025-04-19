@@ -28,15 +28,14 @@
 
         fetch(`https://api.giphy.com/v1/gifs/translate?api_key=SByTIjRrrZOyB9QBQrE7YXmaSw8eCN1C&s=${q}`, {mode: 'cors'})
       .then(function(response) {
-        console.log(response.json())
         return response.json();
       })
       .then(function(response) {
         img.src = response.data.images.original.url;
       })
-      // .catch(function(error) {
-      //   document.querySelector('#err-msg').innerHTML = 'No giphy found'
-      // })
+      .catch(function(error) {
+        document.querySelector('#err-msg').innerHTML = 'No giphy found'
+      })
     }
     
   </script>
