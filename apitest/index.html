@@ -20,22 +20,21 @@
     searchbtn.addEventListener('click', fetchimg);
     fetchimg();
 
-    function fetchimg(q='cats'){
+    async function fetchimg(q='cats'){
+      try{
         const inp = document.querySelector('input').value;
         if (inp.length > 0){
             q = inp;
         }
 
-        fetch(`https://api.giphy.com/v1/gifs/translate?api_key=SByTIjRrrZOyB9QBQrE7YXmaSw8eCN1C&s=${q}`, {mode: 'cors'})
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(response) {
-        img.src = response.data.images.original.url;
-      })
-      .catch(function(error) {
+        const response = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=SByTIjRrrZOyB9QBQrE7YXmaSw8eCN1C&s=${q}`, {mode: 'cors'})
+
+        const giphydata = await response.json();
+
+        img.src = giphydata.data.images.original.url;
+      } catch (error) {
         document.querySelector('#err-msg').innerHTML = 'No giphy found'
-      })
+      }
     }
     
   </script>
