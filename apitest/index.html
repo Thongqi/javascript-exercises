@@ -28,7 +28,7 @@
 
         fetch(`https://api.giphy.com/v1/gifs/translate?api_key=SByTIjRrrZOyB9QBQrE7YXmaSw8eCN1C&s=${q}`, {mode: 'cors'})
       .then(function(response) {
-        console.log(q);
+        console.log(response.json())
         return response.json();
       })
       .then(function(response) {
