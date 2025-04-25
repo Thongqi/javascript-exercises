@@ -8,15 +8,22 @@ function mergeSort(array){
 
     let right = mergeSort(array.slice(half))
     
-    while (array.length > sorted.length){
-        console.log(sorted, left, right)
-        if (left[0] > right[0]) {
-            if(right.length > 0) sorted.push(right.shift())
+    while (array.length !== sorted.length){
+        console.log(left, right)
+        if(right.length > 0) {
+            if (left[0] > right[0])  sorted.push(right.shift()) 
+            else  { 
+                if(left.length != 0) sorted.push(left.shift())
+                else sorted.push(right.shift())
+            }
+        } else {
+            if (left.length != 0) sorted.push(left.shift())
         }
-        else {if (left.length > 0)sorted.push(left.shift())}
         
-        if (left.length === 0 && right.length != 0) sorted.push(right.shift())
-        if (right.length === 0 && left.length != 0) sorted.push(left.shift())
+        // else {if (left.length > 0)sorted.push(left.shift())}
+        
+        // if (left.length === 0 && right.length != 0) sorted.push(right.shift())
+        
     }
 
     return sorted
