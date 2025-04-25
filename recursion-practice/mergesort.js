@@ -5,15 +5,18 @@ function mergeSort(array){
     }
     let half = Math.ceil(array.length/2)
     let left = mergeSort(array.slice(0, half))
-
     let right = mergeSort(array.slice(half))
     
     while (array.length !== sorted.length){
         console.log(left, right)
+        // if right array is not empty, check if left[0] bigger than right[0]
         if(right.length > 0) {
             if (left[0] > right[0])  sorted.push(right.shift()) 
             else  { 
+                // only push left[0] if it is not undefined
+                // if left if empty, just start to push all right element
                 if(left.length != 0) sorted.push(left.shift())
+                
                 else sorted.push(right.shift())
             }
         } else {
