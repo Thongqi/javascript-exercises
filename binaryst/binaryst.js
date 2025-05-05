@@ -78,15 +78,59 @@ class Tree{
         return this.checkIndex(value)
     }
 
+    // height(value){
+    //     if (!value) return 'provide a value'
+    //     let height = 0;
+    //     let tmp = this.root
+    //     while(tmp.data != value){
+    //         if (!tmp) return 'not in tree'
+    //         if(tmp.data > value) {
+    //         	tmp = tmp.left
+    //         }
+    //         else if(tmp.data < value) {
+    //         	tmp = tmp.right
+    //         }
+
+    //         height++
+    //         console.log(tmp)
+          
+    //     }
+    //     return height;
+    // }
+
     height(value){
-        let height = 0;
+        if (!value) return 'provide a value'
+        let height = {value: -1}
+        this.findMaxHeight(this.root, parseInt(value), height)
+        return height.value
+    }
+
+    findMaxHeight(root = this.root, value, height){
+        if (!root) return -1
+
+        let leftHeight = this.findMaxHeight(root.left, value, height)
+        let rightHeight = this.findMaxHeight(root.right, value, height)
+				
+        let ans = Math.max(leftHeight, rightHeight) + 1
+        if(root.data === value) height.value = ans
+        return ans
+    }
+
+    depth(value){
+        let depth = 0;
         let tmp = this.root
-        while(tmp != value){
-            if(tmp > value) tmp = tmp.left
-            else if(tmp < value) tmp = tmp.left
-            height++
+        while(tmp.data != value){
+            if (!tmp) return 'not in tree'
+            if(tmp.data > value) {
+            	tmp = tmp.left
+            }
+            else if(tmp.data < value) {
+            	tmp = tmp.right
+            }
+            depth++
+          
         }
-        return height;
+        return depth;
     }
 
     replace(node){
