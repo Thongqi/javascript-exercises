@@ -5,7 +5,7 @@ class Node {
         this.right = null
     }
 }
-export class Tree{
+class Tree{
     constructor(array){
         this.root = this.buildTree(array)
     }
@@ -193,6 +193,19 @@ export class Tree{
     
         return root;
     }
+
+    prettyPrint(node, prefix = "", isLeft = true) {
+        if (node === null) {
+          return;
+        }
+        if (node.right !== null) {
+          prettyPrint(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
+        }
+        console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.data}`);
+        if (node.left !== null) {
+          prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
+        }
+      };
 }
 
 
@@ -218,3 +231,5 @@ function mergeSort(array){
 
     return sorted
 }
+
+module.exports = Tree;
