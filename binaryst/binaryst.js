@@ -5,7 +5,7 @@ class Node {
         this.right = null
     }
 }
-class Tree{
+export class Tree{
     constructor(array){
         this.root = this.buildTree(array)
     }
@@ -38,44 +38,41 @@ class Tree{
         return levelOrderArray
     }
 
-    inOrder(callback){
-        let inOrderArray = [];
-        let root = this.root;
-        if (!root) return
+    inOrder(callback, node = this.root, inOrderArray = []){
+
+        if (!node) return
  
-        root = this.inOrder(root.left)
-        callback? callback(root):inOrderArray.push(root)
-        root = this.inOrder(root.right)
+        this.inOrder(callback, node.left, inOrderArray)
+        callback? callback(node):inOrderArray.push(node.data)
+        this.inOrder(callback, node.right, inOrderArray)
 
         return inOrderArray
     }
 
-    preOrder(callback){
-        let preOrderArray = [];
-        let root = this.root;
-        if (!root) return
+    preOrder(callback, node = this.root, preOrderArray = []){
+        if (!node) return
  
-        root = this.preOrder(root.left)
-        callback? callback(root):preOrderArray.push(root)
-        root = this.preOrder(root.right)
+        
+        callback? callback(node):preOrderArray.push(node.data)
+        this.preOrder(callback, node.left, preOrderArray)
+        this.preOrder(callback, node.right, preOrderArray)
 
         return preOrderArray
     }
 
-    postOrder(callback){
-        let postOrderArray = [];
-        let root = this.root;
-        if (!root) return
+    postOrder(callback, node = this.root, postOrderArray = []){
+        if (!node) return
  
-        root = this.postOrder(root.left)
-        callback? callback(root):postOrderArray.push(root)
-        root = this.postOrder(root.right)
+        this.postOrder(callback, node.left, postOrderArray)
+        this.postOrder(callback, node.right, postOrderArray)
+        callback? callback(node):postOrderArray.push(node.data)
+        
 
         return postOrderArray
     }
 
     find(value){
-        return this.checkIndex(value)
+        return this.checkIndex(this.root, value)
     }
 
     // height(value){
@@ -149,18 +146,32 @@ class Tree{
         return node
     }
 
+    isBalanced(node = this.root){
+        if(!node) return true
+        let leftHeight = this.findMaxHeight(node.left)
+        let rightHeight = this.findMaxHeight(node.right)
+
+        // once inbalance, break and return false
+        if(Math.abs(leftHeight - rightHeight) > 1) return false
+        return this.isBalanced(node.left) && this.isBalanced(node.right)
+    }
+
+    rebalance(){
+        let newArray = this.inOrder()
+        this.root = this.buildTree(newArray)
+    }
+
     checkIndex(tmp, value){
-        
+
         if (tmp.right === null && tmp.left === null) {
             return tmp
-        }
+        } 
         if (value > tmp.data) {
-            tmp = this.checkIndex(tmp.right, value)
-            
+            tmp = tmp.right?this.checkIndex(tmp.right, value):tmp
         } else if (value < tmp.data) {
-            tmp = this.checkIndex(tmp.left, value);
+            tmp = tmp.left?this.checkIndex(tmp.left, value):tmp
         }
-		return tmp
+        return tmp
         
     }
     
