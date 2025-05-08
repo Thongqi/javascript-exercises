@@ -1,13 +1,9 @@
 function knightMoves(start, end){
     let moves = [start, end]
     let queueToCheck = generatePossibleMove(start)
-    while (queueToCheck.length > 0){
+    while (queueToCheck.filter(item => JSON.stringify(item) == JSON.stringify(end)).length > 0){
       console.log(moves)
       let next = queueToCheck.shift()
-      if (queueToCheck.filter(item => JSON.stringify(item) == JSON.stringify(end)).length > 0) {
-        moves.push(end)
-        return moves
-      }
       moves.pop()
       queueToCheck = queueToCheck.concat(generatePossibleMove(next))
       moves.push(next)
