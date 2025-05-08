@@ -1,21 +1,58 @@
+
 function knightMoves(start, end){
     let moves = [start, end]
     let queueToCheck = generatePossibleMove(start)
-    while (queueToCheck.filter(item => JSON.stringify(item) == JSON.stringify(end)).length > 0){
-      console.log(moves)
-      let next = queueToCheck.shift()
-      moves.pop()
-      queueToCheck = queueToCheck.concat(generatePossibleMove(next))
-      moves.push(next)
+
+    let next
+    while (queueToCheck.filter(item => JSON.stringify(item) == JSON.stringify(moves[1])).length < 1){
+        
+        next = queueToCheck.shift()
+        console.log(next)
+        queueToCheck = queueToCheck.concat(generatePossibleMove(next))
+        
     }
+    
     moves.push(end)
+    moves = moves.toSpliced(1, 0, next) */
+
+    // while (queueToCheck.filter(item => JSON.stringify(item) == JSON.stringify(end)).length > 0){
+    //   console.log(moves)
+    //   let next = queueToCheck.shift()
+    //   moves.pop()
+    //   queueToCheck = queueToCheck.concat(generatePossibleMove(next))
+    //   moves.push(next)
+    // }
+    // moves.push(end)
+    // while (generatePossibleMove(start).filter(item => JSON.stringify(item) == JSON.stringify(moves[1])).length < 1){
+    //   while (queueToCheck.filter(item => JSON.stringify(item) == JSON.stringify(end)).length > 0){
+    //     console.log(moves)
+    //     let next = queueToCheck.shift()
+    //     moves.pop()
+    //     queueToCheck = queueToCheck.concat(generatePossibleMove(next))
+    //     moves.push(next)
+    //   }
+    //   moves.push(end)
+    // }
+    // moves.push(end)
     return moves
 
 }
 
+
+function findNext(callback, queueToCheck = generatePossibleMove(moves[1]), moves){
+	if (queueToCheck.filter(item => JSON.stringify(item) == JSON.stringify(moves[1])).length < 1) return
+  let next = queueToCheck.shift()
+  queueToCheck = queueToCheck.concat(generatePossibleMove(next))
+  callback? callback(queueToCheck, moves):moves.toSpliced(1, 0, next)
+  return moves
+	
+}
+//
+
 // function checkMoves(coordinate){
 //     return generatePossibleMove(coordinate)
 // }
+
 
 function generatePossibleMove([x, y]){
     const setofMoves = [
