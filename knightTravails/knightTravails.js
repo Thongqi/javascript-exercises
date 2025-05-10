@@ -1,59 +1,3 @@
-
-function knightMoves(start, end){
-    let moves = [start, end]
-    let queueToCheck = generatePossibleMove(start)
-
-    let next
-    while (queueToCheck.filter(item => JSON.stringify(item) == JSON.stringify(moves[1])).length < 1){
-        
-        next = queueToCheck.shift()
-        console.log(next)
-        queueToCheck = queueToCheck.concat(generatePossibleMove(next))
-        
-    }
-    
-    moves.push(end)
-    moves = moves.toSpliced(1, 0, next) */
-
-    // while (queueToCheck.filter(item => JSON.stringify(item) == JSON.stringify(end)).length > 0){
-    //   console.log(moves)
-    //   let next = queueToCheck.shift()
-    //   moves.pop()
-    //   queueToCheck = queueToCheck.concat(generatePossibleMove(next))
-    //   moves.push(next)
-    // }
-    // moves.push(end)
-    // while (generatePossibleMove(start).filter(item => JSON.stringify(item) == JSON.stringify(moves[1])).length < 1){
-    //   while (queueToCheck.filter(item => JSON.stringify(item) == JSON.stringify(end)).length > 0){
-    //     console.log(moves)
-    //     let next = queueToCheck.shift()
-    //     moves.pop()
-    //     queueToCheck = queueToCheck.concat(generatePossibleMove(next))
-    //     moves.push(next)
-    //   }
-    //   moves.push(end)
-    // }
-    // moves.push(end)
-    return moves
-
-}
-
-
-function findNext(callback, queueToCheck = generatePossibleMove(moves[1]), moves){
-	if (queueToCheck.filter(item => JSON.stringify(item) == JSON.stringify(moves[1])).length < 1) return
-  let next = queueToCheck.shift()
-  queueToCheck = queueToCheck.concat(generatePossibleMove(next))
-  callback? callback(queueToCheck, moves):moves.toSpliced(1, 0, next)
-  return moves
-	
-}
-//
-
-// function checkMoves(coordinate){
-//     return generatePossibleMove(coordinate)
-// }
-
-
 function generatePossibleMove([x, y]){
     const setofMoves = [
         [-1,2], [2,-1], [1, -2], [-2, 1],
@@ -68,34 +12,41 @@ function generatePossibleMove([x, y]){
     return possibleMoves
 }
 
-// function generatePossibleMoves([x, y]){
+function knightMoves(start,end, moves=[start,end], queueToCheck = generatePossibleMove(moves[0]), callback){
+	// if the start and the second coordinate is connected, end
+  if(generatePossibleMove(moves[0]).filter(item => JSON.stringify(item) == JSON.stringify(moves[1])).length > 0 ) printOut(moves)
+
+  // else let the second coordinate as end, and find path to connect
+  if (queueToCheck.filter(item => JSON.stringify(item) == JSON.stringify(moves[1])).length > 0) return
     
-//     let possibleMoves = {}
-//     for (x; x< 8; x++){
-//         let y = 0
-//         for (y; y < 8; y ++){
-// /*         		console.log(x, y) */
-//         		let moves = []
-//             if (x - 1 > 0){
-//                 if (y - 2 > 0) moves.push([x - 1, y - 2])
-//                 if (y + 2 < 8) moves.push([x - 1, y + 2])
-//             }
-//             if (x - 2 > 0){
-//                 if (y - 1 > 0) moves.push([x - 2, y - 1])
-//                 if (y + 1 < 8) moves.push([x - 2, y + 1])
-//             }
-//             if (x + 1 < 8){
-//                 if (y + 2 < 8) moves.push([x + 1, y + 2])
-//                 if (y - 2 > 0) moves.push([x + 1, y - 2])
-//             }
-//             if (x + 2 < 8){
-//                 if (y + 1 < 8) moves.push([x + 2, y + 1])
-//                 if (y - 1 > 0) moves.push([x + 2, y - 1])
-//             }
-//             let key = `[${x}, ${y}]`
-//             // console.log(key, moves)
-//             possibleMoves[key] = moves
-//         }
-//     }
-//     return possibleMoves
-// }
+  let next = queueToCheck.shift()
+  // keep the coordinate in [moves], and check if the 'end' is in child of it
+  moves = moves.toSpliced(1, 0, next)
+  queueToCheck = queueToCheck.concat(generatePossibleMove(next))
+  
+  // if not in it, remove the coordinate from [moves]
+  if (queueToCheck.filter(item => JSON.stringify(item) == JSON.stringify(moves[2])).length < 1) {
+    if (JSON.stringify(next) == JSON.stringify(start)){
+      moves = moves.filter(item => JSON.stringify(item) !== JSON.stringify(next))
+      moves = moves.toSpliced(0, 0, start)
+    }
+    else moves = moves.filter(item => JSON.stringify(item) !== JSON.stringify(next))
+  }
+  // if in it, do not remove, and regenerate queueToCheck with start.
+  else {
+ 	 	queueToCheck = generatePossibleMove(moves[0])
+  }
+  //let second coordinate as end, find path to connect start and new end
+  end = moves[1]
+  moves = findNext(start, end, moves, queueToCheck, callback)
+	
+	return moves
+	
+}
+
+function printOut(moves){
+	console.log(`You made it in ${moves.length - 2} moves!  Here's your path:`)
+  moves.forEach(item => console.log(item))
+}
+
+module.exports = knightMoves
