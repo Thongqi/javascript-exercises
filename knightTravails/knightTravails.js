@@ -38,7 +38,7 @@ function knightMoves(start,end, moves=[start,end], queueToCheck = generatePossib
   }
   //let second coordinate as end, find path to connect start and new end
   end = moves[1]
-  moves = findNext(start, end, moves, queueToCheck, callback)
+  moves = knightMoves(start, end, moves, queueToCheck, callback)
 	
 	return moves
 	
